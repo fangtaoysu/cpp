@@ -4,9 +4,19 @@
 */
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <vector>
+#include <iterator>
 using namespace std;
 
-const int MAX_SIZE = 100; // Maximum size of user_array
+const int MAX_SIZE = 1024; // Maximum size of user_vector
+struct User {
+    string name;
+    bool sex;
+    int age;
+    string tel;
+    string addr;
+};
 
 void show_ui() {
     cout << "*************************************************" << endl;
@@ -40,8 +50,11 @@ bool type_check(string item, string type) {
     return true;
 }
 
-void add_user(string user_array[][5], int& size) {
-    string user[5];
+void add_user(vector<User> &user_vector) {
+    if (user_vector.size() >= MAX_SIZE) {
+        cout << "通讯录已满，无法添加更多联系人。" << endl;
+        return;
+    }
     string name, sex, age, tel, addr;
     cout << "姓名？" << endl;
     cin >> name;
@@ -69,85 +82,71 @@ void add_user(string user_array[][5], int& size) {
     while (!len_check(addr, 6, 100)) {
         cin >> addr;
     }
-    user[0] = name;
-    user[1] = (sex == "0") ? "女" : "男";
-    user[2] = age;
-    user[3] = tel;
-    user[4] = addr;
 
-    if (size < MAX_SIZE) {
-        for (int i = 0; i < 5; ++i) {
-            user_array[size][i] = user[i];
-        }
-        ++size;
-        cout << "联系人添加成功！" << endl;
-    } else {
-        cout << "通讯录已满，无法添加更多联系人。" << endl;
-    }
+    User new_user;
+    new_user.name = name;
+    new_user.name = name;
+    new_user.sex = (sex == "0") ? false : true;
+    new_user.age = stoi(age);
+    new_user.tel = tel;
+    new_user.addr = addr;
+    user_vector.push_back(new_user);
+    cout << "联系人添加成功！" << endl;
 }
 
-int find_user(string user_array[][5], int size, string name) {
-    cout << "查询记录的姓名？" << endl;
-    cin >> name;
-    int i = 0;
-    for (int i = 0; i < size; ++i) {
-        if (user_array[i][0] == name) {
-            return i;
+vector<User>::iterator find_user(vector<User>::iterator b, vector<User>::iterator e, string name) {
+    vector<User>::iterator it = b;
+    while(it != e) {
+        if (it->name == name) {
+            return it;
         }
+        ++it;
     }
-    if (i == size) {
-        cout << "查无此人" << endl;
-        return -1;
-    }
+    return it;
 }
 
-void show_user(string user_array[][5], int left, int right) {
-    for (int i = left; i < right; ++i) {
-        cout << "姓名：" << user_array[i][0]
-             << "\t性别：" << user_array[i][1]
-             << "\t年龄：" << user_array[i][2]
-             << "\t电话：" << user_array[i][3]
-             << "\t住址：" << user_array[i++][4] << endl;
+void show_user(vector<User>::iterator b, vector<User>::iterator e) {
+    vector<User>::iterator it = b;
+    while (it != e) {
+        string s = it->sex ? "男" : "女";
+        cout << "姓名：" << it->name
+             << "\t性别：" << s
+             << "\t年龄：" << it->age
+             << "\t电话：" << it->tel
+             << "\t住址：" << it->addr << endl;
+        ++it;
     }
     
 }
 
-bool delete_user(string user_array[][5], int& size, string name) {
-    int ix = 0;
-    while (ix < size) {
-        if (user_array[ix][0] == name) {
-            for (int j = 0; j < 5; ++j) {
-                user_array[ix][j] = user_array[size-1][j];
-            }
-            --size;
-            cout << "删除成功" << endl;
-            return true;
-        }
-        ++ix;
-    }
-    if (ix == size) {
-        cout << "查无此人" << endl;
+bool delete_user(vector<User> &user_vector, string name) {
+    vector<User>::iterator it = find_user(user_vector.begin(), user_vector.end(), name);
+    if (it == user_vector.end()) {
         return false;
     }
+    user_vector.erase(it);
+    return true;
 }
 
-void update_user(string user_array[][5], int size, string name) {
-    if(delete_user(user_array, size, name)) {
-        add_user(user_array, size);
+void update_user(vector<User> &user_vector, string name) {
+    if(delete_user(user_vector, name)) {
+        add_user(user_vector);
+    } else {
+        cout << "查无此人" << endl;
     }
 }
 
-void clear_user(int& size) {
-    size = 0;
+void clear_user(vector<User> &user_vector) {
+    user_vector.clear();
+    cout << "通讯录内容已全部清除" << endl;
 }
 
 int main() {
-    int size = 0; // Current size of user_array
-    char command = ' ';
-    int index = 0;
-    string name = " ";    // 为什么必须初始化才能在switch里面赋值
     bool more = true;
-    static string user_array[MAX_SIZE][5];
+    char command = ' ';
+    string name = " ";
+    vector<User>::iterator it;
+    vector<User> user_vector;
 
     while (more) {
         show_ui();
@@ -155,29 +154,33 @@ int main() {
 
         switch (command) {
             case '1':
-                add_user(user_array, size);
+                add_user(user_vector);
                 break;
             case '2':
-                show_user(user_array, 0, size);
+                show_user(user_vector.begin(), user_vector.end());
                 break;
             case '3':
                 cout << "输入需要删除的用户名：" << endl;
                 cin >> name;
-                delete_user(user_array, size, name);
+                if (delete_user(user_vector, name)) {
+                    cout << name << "删除成功" << endl;
+                } else {
+                    cout << "查无此人" << endl;
+                }
                 break;
             case '4':
                 cout << "输入需要查找的用户名：" << endl;
                 cin >> name;
-                index = find_user(user_array, size, name);
-                show_user(user_array, index, index+1);
+                it = find_user(user_vector.begin(), user_vector.end(), name);
+                show_user(it, it+1);
                 break;
             case '5':
                 cout << "输入需要查找的用户名：" << endl;
                 cin >> name;
-                update_user(user_array, size, name);
+                update_user(user_vector, name);
                 break;
             case '6':
-                clear_user(size);
+                clear_user(user_vector);
                 break;
             case '0':
                 more = false;
@@ -186,9 +189,7 @@ int main() {
                 cout << "命令不正确" << endl;
                 break;
         }
-
-        cout << endl;
     }
-
+    system("clear");
     return 0;
 }
