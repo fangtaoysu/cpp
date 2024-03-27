@@ -4,9 +4,17 @@
 */
 #include <iostream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
 const int MAX_SIZE = 100; // Maximum size of user_array
+struct User {
+    string name;
+    bool sex;
+    int age;
+    string tel;
+    string addr;
+};
 
 void show_ui() {
     cout << "*************************************************" << endl;
@@ -40,8 +48,7 @@ bool type_check(string item, string type) {
     return true;
 }
 
-void add_user(string user_array[][5], int& size) {
-    string user[5];
+void add_user(User user_array[], int& size) {
     string name, sex, age, tel, addr;
     cout << "姓名？" << endl;
     cin >> name;
@@ -69,29 +76,23 @@ void add_user(string user_array[][5], int& size) {
     while (!len_check(addr, 6, 100)) {
         cin >> addr;
     }
-    user[0] = name;
-    user[1] = (sex == "0") ? "女" : "男";
-    user[2] = age;
-    user[3] = tel;
-    user[4] = addr;
 
     if (size < MAX_SIZE) {
-        for (int i = 0; i < 5; ++i) {
-            user_array[size][i] = user[i];
-        }
-        ++size;
+        user_array[size].name = name;
+        user_array[size].sex = (sex == "0") ? false : true;
+        user_array[size].age = stoi(age);
+        user_array[size].tel = tel;
+        user_array[size++].addr = addr;
         cout << "联系人添加成功！" << endl;
     } else {
         cout << "通讯录已满，无法添加更多联系人。" << endl;
     }
 }
 
-int find_user(string user_array[][5], int size, string name) {
-    cout << "查询记录的姓名？" << endl;
-    cin >> name;
+int find_user(User user_array[], int size, string name) {
     int i = 0;
     for (int i = 0; i < size; ++i) {
-        if (user_array[i][0] == name) {
+        if (user_array[i].name == name) {
             return i;
         }
     }
@@ -101,24 +102,23 @@ int find_user(string user_array[][5], int size, string name) {
     }
 }
 
-void show_user(string user_array[][5], int left, int right) {
+void show_user(User user_array[], int left, int right) {
     for (int i = left; i < right; ++i) {
-        cout << "姓名：" << user_array[i][0]
-             << "\t性别：" << user_array[i][1]
-             << "\t年龄：" << user_array[i][2]
-             << "\t电话：" << user_array[i][3]
-             << "\t住址：" << user_array[i++][4] << endl;
+        string s = user_array[i].sex ? "男" : "女";
+        cout << "姓名：" << user_array[i].name
+             << "\t性别：" << s
+             << "\t年龄：" << user_array[i].age
+             << "\t电话：" << user_array[i].tel
+             << "\t住址：" << user_array[i++].addr << endl;
     }
     
 }
 
-bool delete_user(string user_array[][5], int& size, string name) {
+bool delete_user(User user_array[], int& size, string name) {
     int ix = 0;
     while (ix < size) {
-        if (user_array[ix][0] == name) {
-            for (int j = 0; j < 5; ++j) {
-                user_array[ix][j] = user_array[size-1][j];
-            }
+        if (user_array[ix].name == name) {
+            user_array[ix] = user_array[size-1];
             --size;
             cout << "删除成功" << endl;
             return true;
@@ -131,7 +131,7 @@ bool delete_user(string user_array[][5], int& size, string name) {
     }
 }
 
-void update_user(string user_array[][5], int size, string name) {
+void update_user(User user_array[], int size, string name) {
     if(delete_user(user_array, size, name)) {
         add_user(user_array, size);
     }
@@ -142,12 +142,12 @@ void clear_user(int& size) {
 }
 
 int main() {
-    int size = 0; // Current size of user_array
-    char command = ' ';
-    int index = 0;
-    string name = " ";    // 为什么必须初始化才能在switch里面赋值
     bool more = true;
-    static string user_array[MAX_SIZE][5];
+    char command = ' ';
+    string name = " ";
+    int size = 0;
+    int index = 0;
+    User user_array[MAX_SIZE];
 
     while (more) {
         show_ui();
@@ -186,9 +186,7 @@ int main() {
                 cout << "命令不正确" << endl;
                 break;
         }
-
-        cout << endl;
     }
-
+    system("clear");
     return 0;
 }
