@@ -5,16 +5,16 @@
 
 
 using namespace std;
-template <typename elemType>
-elemType* find(const elemType*, int, const elemType&);
-template <typename elemType>
-elemType* find(const elemType*, const elemType*, const elemType&);
-template <typename elemType>
-inline const elemType* my_begin(const vector<elemType> &vec);
-template <typename elemType>
-inline const elemType* my_end(const vector<elemType> &vec);
-template <typename IteratorType, typename elemType>
-IteratorType find(IteratorType, IteratorType, const elemType&);
+template <typename ElemType>
+ElemType* find(const ElemType*, int, const ElemType&);
+template <typename ElemType>
+ElemType* find(const ElemType*, const ElemType*, const ElemType&);
+template <typename ElemType>
+inline const ElemType* my_begin(const vector<ElemType> &vec);
+template <typename ElemType>
+inline const ElemType* my_end(const vector<ElemType> &vec);
+template <typename IteratorType, typename ElemType>
+IteratorType find(IteratorType, IteratorType, const ElemType&);
 
 int main() {
     int SIZE = 5;
@@ -47,8 +47,8 @@ int main() {
 }
 
 
-template <typename IteratorType, typename elemType>
-IteratorType find(const IteratorType first, const IteratorType last, const elemType& value) {
+template <typename IteratorType, typename ElemType>
+IteratorType find(const IteratorType first, const IteratorType last, const ElemType& value) {
     /**
      * 版本3：兼容数组，array和链表（链表的节点通过指针连接，之前的访问方式行不通，只能通过迭代器去兼容）
      * 思路：使用迭代器
@@ -66,24 +66,24 @@ IteratorType find(const IteratorType first, const IteratorType last, const elemT
     return last;
 }
 
-template <typename elemType>
-inline const elemType* my_begin(const vector<elemType> &vec) {
+template <typename ElemType>
+inline const ElemType* my_begin(const vector<ElemType> &vec) {
     return vec.empty() ? 0 : &vec[0];
 }
-template <typename elemType>
-inline const elemType* my_end(const vector<elemType> &vec) {
+template <typename ElemType>
+inline const ElemType* my_end(const vector<ElemType> &vec) {
     return vec.empty() ? 0 : &vec[vec.size()];
 }
 
-template <typename elemType>
-elemType* find(const elemType* first, const elemType* last, const elemType &value) {
+template <typename ElemType>
+ElemType* find(const ElemType* first, const ElemType* last, const ElemType &value) {
     /**
      * 版本2：兼容数组和vector
      * 思路：直接操作指针
-     * template <typename elemType>
-     * inline const elemType* my_begin(const vector<elemType> &vec);
-     * template <typename elemType>
-     * inline const elemType* my_end(const vector<elemType> &vec);
+     * template <typename ElemType>
+     * inline const ElemType* my_begin(const vector<ElemType> &vec);
+     * template <typename ElemType>
+     * inline const ElemType* my_end(const vector<ElemType> &vec);
      * int* result1 = find(iarray, iarray+SIZE, value);
      * int* result2 = find(my_begin(ivec), my_end(ivec), value);
     */
@@ -92,15 +92,15 @@ elemType* find(const elemType* first, const elemType* last, const elemType &valu
     }
     while (first != last) {
         if (*first == value) {
-            return (elemType*)(first);
+            return (ElemType*)(first);
         }
         ++first;
     }
     return nullptr;
 }
 
-template <typename elemType>
-elemType* find(const elemType* array, int size, const elemType& value) {
+template <typename ElemType>
+ElemType* find(const ElemType* array, int size, const ElemType& value) {
     /**
      * 版本1：兼容数组和vector
      * 思路：由于数组和vector获取大小的方式不一样，因此传入size
@@ -112,7 +112,7 @@ elemType* find(const elemType* array, int size, const elemType& value) {
     }
     for (int ix = 0; ix < size; ++ix, ++array) {
         if (*array == value) {
-            return (elemType*)(array);
+            return (ElemType*)(array);
         }
     }
     return nullptr;
