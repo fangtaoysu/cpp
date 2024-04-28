@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void write_file() {
+void WriteFile() {
     // 创建流对象
     ofstream ofs;
     string file_path = "file1.txt";
@@ -22,7 +22,7 @@ void write_file() {
     ofs.close();
 }
 
-void read_file() {
+void ReadFile() {
     ifstream ifs;
     string file_path = "file1.txt";
     ifs.open(file_path, ios::in);
@@ -59,7 +59,7 @@ class Person {
         int age;
 };
 
-void read_binary() {
+void ReadBinary() {
     string file_path = "text2.txt";
     ofstream ofs(file_path, ios::out | ios::binary);
     Person p = {"arsion", 30};
@@ -67,7 +67,7 @@ void read_binary() {
     ofs.write((const char *)&p, sizeof(Person));
 }
 
-void write_binary() {
+void WriteBinary() {
     string file_path = "text2.txt";
     ifstream ifs(file_path, ios::in | ios::binary);
     Person s;
@@ -81,9 +81,9 @@ void write_binary() {
 }
 
 int main() {
-    read_file();
-    write_file();
-    write_file();
-    write_binary();
+    ReadFile();
+    WriteFile();
+    WriteFile();
+    WriteBinary();
     return 0;
 }

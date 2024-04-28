@@ -8,7 +8,7 @@ using namespace std;
 
 const int MAX_SIZE = 100; // Maximum size of user_array
 
-void show_ui() {
+void ShowUI() {
     cout << "*************************************************" << endl;
     cout << "***************  1、添加联系人  ******************" << endl;
     cout << "***************  2、显示联系人  ******************" << endl;
@@ -20,7 +20,7 @@ void show_ui() {
     cout << "*************************************************" << endl;
 }
 
-bool len_check(string item, int left, int right) {
+bool LenCheck(string item, int left, int right) {
     if (item.length() < left || item.length() > right) {
         cout << "参数不合法" << endl;
         return false;
@@ -28,7 +28,7 @@ bool len_check(string item, int left, int right) {
     return true;
 }
 
-bool type_check(string item, string type) {
+bool TypeCheck(string item, string type) {
     if (type == "int") {
         for (int i = 0; i < item.length(); ++i) {
             if (item[i] > '9' || item[i] < '0') {
@@ -40,12 +40,12 @@ bool type_check(string item, string type) {
     return true;
 }
 
-void add_user(string user_array[][5], int& size) {
+void AddUser(string user_array[][5], int& size) {
     string user[5];
     string name, sex, age, tel, addr;
     cout << "姓名？" << endl;
     cin >> name;
-    while (!len_check(name, 2, 4)) {
+    while (!LenCheck(name, 2, 4)) {
         cin >> name;
     }
     cout << "性别？(男1女0)" << endl;
@@ -56,17 +56,17 @@ void add_user(string user_array[][5], int& size) {
     }
     cout << "年龄？" << endl;
     cin >> age;
-    while (!len_check(age, 1, 3) || !type_check(age, "int")) {
+    while (!LenCheck(age, 1, 3) || !TypeCheck(age, "int")) {
         cin >> age;
     }
     cout << "电话？" << endl;
     cin >> tel;
-    while (!len_check(tel, 11, 12) || !type_check(tel, "int")) {
+    while (!LenCheck(tel, 11, 12) || !TypeCheck(tel, "int")) {
         cin >> tel;
     }
     cout << "住址？" << endl;
     cin >> addr;
-    while (!len_check(addr, 6, 100)) {
+    while (!LenCheck(addr, 6, 100)) {
         cin >> addr;
     }
     user[0] = name;
@@ -86,7 +86,7 @@ void add_user(string user_array[][5], int& size) {
     }
 }
 
-int find_user(string user_array[][5], int size, string name) {
+int FindUser(string user_array[][5], int size, string name) {
     cout << "查询记录的姓名？" << endl;
     cin >> name;
     int i = 0;
@@ -101,7 +101,7 @@ int find_user(string user_array[][5], int size, string name) {
     }
 }
 
-void show_user(string user_array[][5], int left, int right) {
+void ShowUser(string user_array[][5], int left, int right) {
     for (int i = left; i < right; ++i) {
         cout << "姓名：" << user_array[i][0]
              << "\t性别：" << user_array[i][1]
@@ -112,7 +112,7 @@ void show_user(string user_array[][5], int left, int right) {
     
 }
 
-bool delete_user(string user_array[][5], int& size, string name) {
+bool DeleteUser(string user_array[][5], int& size, string name) {
     int ix = 0;
     while (ix < size) {
         if (user_array[ix][0] == name) {
@@ -131,13 +131,13 @@ bool delete_user(string user_array[][5], int& size, string name) {
     }
 }
 
-void update_user(string user_array[][5], int size, string name) {
-    if(delete_user(user_array, size, name)) {
-        add_user(user_array, size);
+void UpdateUser(string user_array[][5], int size, string name) {
+    if(DeleteUser(user_array, size, name)) {
+        AddUser(user_array, size);
     }
 }
 
-void clear_user(int& size) {
+void ClearUser(int& size) {
     size = 0;
 }
 
@@ -150,34 +150,34 @@ int main() {
     static string user_array[MAX_SIZE][5];
 
     while (more) {
-        show_ui();
+        ShowUI();
         cin >> command;
 
         switch (command) {
             case '1':
-                add_user(user_array, size);
+                AddUser(user_array, size);
                 break;
             case '2':
-                show_user(user_array, 0, size);
+                ShowUser(user_array, 0, size);
                 break;
             case '3':
                 cout << "输入需要删除的用户名：" << endl;
                 cin >> name;
-                delete_user(user_array, size, name);
+                DeleteUser(user_array, size, name);
                 break;
             case '4':
                 cout << "输入需要查找的用户名：" << endl;
                 cin >> name;
-                index = find_user(user_array, size, name);
-                show_user(user_array, index, index+1);
+                index = FindUser(user_array, size, name);
+                ShowUser(user_array, index, index+1);
                 break;
             case '5':
                 cout << "输入需要查找的用户名：" << endl;
                 cin >> name;
-                update_user(user_array, size, name);
+                UpdateUser(user_array, size, name);
                 break;
             case '6':
-                clear_user(size);
+                ClearUser(size);
                 break;
             case '0':
                 more = false;

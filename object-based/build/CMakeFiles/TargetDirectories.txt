@@ -1,0 +1,3 @@
+/home/fangtao/cpp/object-based/build/CMakeFiles/executable.dir
+/home/fangtao/cpp/object-based/build/CMakeFiles/edit_cache.dir
+/home/fangtao/cpp/object-based/build/CMakeFiles/rebuild_cache.dir
