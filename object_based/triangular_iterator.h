@@ -8,7 +8,7 @@ public:
     bool operator!=(const TriangularIterator&) const;
     int operator*() const;
     TriangularIterator& operator++(); // ++it;
-    TriangularIterator& operator++(int); // it++;
+    TriangularIterator operator++(int); // it++;
 
 private:
     void CheckIntegrity() const;

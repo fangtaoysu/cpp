@@ -37,8 +37,10 @@ public:
     bool Next(int &val);
     void NextReset() {next_ = beg_pos_ - 1;}
 
-    Triangular& Copy(const Triangular&);
-    // Triangular& operator=(const Triangular &);
+    Triangular& Copy(const Triangular &rhs);
+    // 重载输入输出
+    friend ostream& operator<<(ostream &os, const Triangular &rhs);
+    friend istream& operator>>(istream &is, Triangular &rhs);
     // static 方法对类的方法，而不是实例方法
     static bool IsElem(int);
     static void GenElements(int);

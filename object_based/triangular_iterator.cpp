@@ -2,20 +2,20 @@
 // #include <iterator_overflow.h>
 
 
-inline bool TriangularIterator::operator==(const TriangularIterator &rhs) const {
+bool TriangularIterator::operator==(const TriangularIterator &rhs) const {
     return this->index_ == rhs.index_;
 }
 
-inline bool TriangularIterator::operator!=(const TriangularIterator &rhs) const {
+bool TriangularIterator::operator!=(const TriangularIterator &rhs) const {
     return !(*this == rhs);
 }
 
-inline int TriangularIterator::operator*() const {
+int TriangularIterator::operator*() const {
     CheckIntegrity();
     return Triangular::kElems_[index_];
 }
 
-inline void TriangularIterator::CheckIntegrity() const {
+void TriangularIterator::CheckIntegrity() const {
     // if (index_ >= Triangular::max_elems_()) {
     //     throw iterator_overflow();
     // }
@@ -25,7 +25,7 @@ inline void TriangularIterator::CheckIntegrity() const {
     }
 }
 
-inline TriangularIterator& TriangularIterator::operator++() {
+TriangularIterator& TriangularIterator::operator++() {
     /** ++it
     */
     ++index_;
@@ -33,7 +33,7 @@ inline TriangularIterator& TriangularIterator::operator++() {
     return *this;
 }
 
-inline TriangularIterator& TriangularIterator::operator++(int) {
+TriangularIterator TriangularIterator::operator++(int) {
     /** it++
     */
    TriangularIterator tmp = *this;

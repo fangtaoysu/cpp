@@ -1,7 +1,12 @@
+/**
+ * triangular complish a class
+ * TriangularIterator complish class iterator 
+*/
 #include "stack.h"
 #include "../tool/tool.h"
 #include "triangular.h"
 #include "triangular_iterator.h"
+// #include "num_sequence.h"
 
 
 using namespace std;
@@ -85,12 +90,35 @@ void FindTriangular() {
 }
 
 void TestIterator() {
-    Triangular train(1, 8);
+    // issue function
+    Triangular train(8, 1);
     Triangular::iterator it = train.begin();
     while (it != train.end()) {
-        cout << *it << ' ';
-        ++it;
+        cout << *(it++) << ' ';
     }
+    cout << "\n";
+}
+
+void TestOperator() {
+    /**
+     * 测试重载 << 和 >>
+    */
+    Triangular tri1(3, 6);
+    cout << tri1 << "\n";
+    
+    Triangular tri2;
+    cin >> tri2;
+    cout << tri2;
+}
+
+void TestPointers() {
+    // NumSequence ns;
+    // const int pos = 8;
+    // for (int ix = 0; ix < NumSequence::NumOfSequence(); ++ix) {
+    //     ns.SetSquence(NumSequence::(ix));
+    //     int elem_val = ns.Elem(pos);
+    //     Display(ns, pos, elem_val);
+    // }
 }
 
 int main() {
@@ -100,7 +128,10 @@ int main() {
 
     // FindTriangular();
 
-    TestIterator();
+    // TestIterator();
 
+    // TestOperator();
+
+    TestPointers();
     return 0;
 }

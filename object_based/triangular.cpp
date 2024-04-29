@@ -111,15 +111,18 @@ void Triangular::Display(int length, int beg_pos, ostream &os) {
     os << endl;
 }
 
-// Triangular& Trinagular::operator=(const Triangular &rhs) {
-//     if (this != &rhs) {
-//         length_ = rhs.length_;
-//         beg_pos_ = rhs.beg_pos_;
-//         next_ = rhs.next_;
-//         kMaxElems_ = rhs._max_element;
-//         delete kElems_;
-//         vector<int> kElems_(rhs.elems_);
-//     }
-    
-//     return *this;
-// }
+ostream& operator<<(ostream &os, const Triangular &rhs) {
+    os << "( " << rhs.Length()
+       << ", " << rhs.BegPos() << " )";
+
+    rhs.Display(rhs.Length(), rhs.BegPos(), os);
+    return os; 
+}
+
+istream& operator>>(istream& is, Triangular& rhs) {
+    char ch1, ch2;
+    is >> ch1 >> rhs.length_  >> ch2 >> rhs.beg_pos_;
+    rhs.NextReset();
+
+    return is;
+}

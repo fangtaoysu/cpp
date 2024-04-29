@@ -7,7 +7,7 @@
 
 // 带模版的定义必须在头文件里实现
 template <typename IteratorType>
-void display(IteratorType first, IteratorType last) {
+void Display(IteratorType first, IteratorType last) {
     while (first != last) {
         std::cout << *first++ << "\t";
     }
