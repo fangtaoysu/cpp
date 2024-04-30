@@ -6,30 +6,31 @@
 #include "fibonacci.h"
 
 
-
-using namespace std;
-
 void Print(const LibMat &mat) {
-    cout << "in global print(): about to print mat.print()\n";
+    std::cout << "in global print(): about to print mat.print()\n";
     mat.Print();
 }
 
 void TestClass() {
-    cout << "\n" << "Creating a AudioBook object to print()\n";
+    std::cout << "\n" << "Creating a AudioBook object to print()\n";
     AudioBook audio_book("hello", "world", "ft");
     Print(audio_book);
 }
 
 void TestInherit() {
    Fibonacci fib;
-   cout << "fib: beginning at element 1 for 1 element:" << fib << endl;
+   std::cout << "fib: beginning at element 1 for 1 element:" << fib << std::endl;
 
-   Fibonacci fib2(16);
-   cout << "fib2: beginning at element 1 for 16 element:" << fib2 << endl;
+   Fibonacci fib2(45);
+   std::cout << "fib2: beginning at element 1 for 45 element:" << fib2 << std::endl;
 
    Fibonacci fib3(8, 12);
-   cout << "fib3: beginning at element 8 for 12 element:" << fib3 << endl;
+   std::cout << "fib3: beginning at element 8 for 12 element:" << fib3 << std::endl;
 
+    const int pos = 8;
+
+    Fibonacci fib4;
+    Display(std::cout, fib4, pos);
 }
 
 int main() {

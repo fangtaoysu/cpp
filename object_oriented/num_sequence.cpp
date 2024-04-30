@@ -13,6 +13,7 @@ bool NumSequence::CheckIntegrity(int pos, int size) const {
     return true;
 }
 
-ostream& operator<<(ostream &os, const NumSequence &ns) {
+std::ostream& operator<<(std::ostream &os, const NumSequence &ns) {
+    // std::cout << "NumSequence\n";
     return ns.Print(os);
 }

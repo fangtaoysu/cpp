@@ -3,6 +3,7 @@
 #include "num_sequence.h"
 #include <iostream>
 #include <vector>
+#include <ostream>
 
 class Fibonacci : public NumSequence {
 public:
@@ -13,21 +14,21 @@ public:
     virtual const char* WhatAmI() const {
         return "Fibonacci";
     }
-    virtual ostream& Print(ostream &os=std::cout) const override;
+    virtual std::ostream& Print(std::ostream &os=std::cout) const override;
     int Length() const {
         return length_;
     }
     int BegPos() const {
         return beg_pos_;
     }
-    friend ostream& operator<<(ostream& os, const Fibonacci& fib);
+    friend std::ostream& operator<<(std::ostream& os, const Fibonacci& fib);
 
 protected:
     virtual void GenElems(int pos) const;
     bool CheckIntegrity(int pos) const;
     int length_;
     int beg_pos_;
-    static vector<int> kElems_;
+    static std::vector<int> kElems_;
 };
 
 inline bool Fibonacci::CheckIntegrity(int pos) const {
