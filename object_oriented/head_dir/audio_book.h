@@ -6,7 +6,7 @@
 
 class AudioBook : public Book{
 public:
-    AudioBook(const string &title, const string &author, const string &player)
+    AudioBook(const std::string &title, const std::string &author, const std::string &player)
         : Book(title, author),  player_(player) {
         std::cout << "AudioBook::AudioBook( " << title
                   << ", " << author
@@ -20,14 +20,14 @@ public:
         std::cout << "AudioBook::Print() -- I am a AudioBook object\n"
              << "title is " << title_
              << "\nauthor is " << author_ 
-             << "\nplayer is " << player_ << endl;
+             << "\nplayer is " << player_ << std::endl;
     }
-    const string& Player() const {
+    const std::string& Player() const {
         return player_;
     }
 
 private:
-    string player_;
+    std::string player_;
 };
 
 #endif
