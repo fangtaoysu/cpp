@@ -28,6 +28,7 @@ int NumSequence::Elem(int pos) const {
 }
 
 const char* NumSequence::WhatAmI() const {
+    // 9Fibonacci 9是Fibonacci字符串长度
     return typeid(*this).name();
 }
 

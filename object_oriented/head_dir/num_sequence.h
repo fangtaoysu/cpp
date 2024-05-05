@@ -9,7 +9,6 @@ public:
     // 非虚函数在编译时完成解析，因此析构函数必须是虚函数
     virtual ~NumSequence() {
     }
-    virtual const char* WhatAmI() const=0; // 设为纯虚函数，在抽象类中无需实现
     int Elem(int pos) const; // 使用虚函数机制
     std::ostream& Print(std::ostream &os=std::cout) const;
     /**

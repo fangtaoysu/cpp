@@ -10,11 +10,6 @@ public:
     Triangular(int len=1, int beg_pos=1)
         : NumSequence(len, beg_pos, &kElems_) {
     }
-    // virtual int Elem(int pos) const;
-    virtual const char* WhatAmI() const {
-        return "Triangular";
-    }
-    // friend std::ostream& operator<<(std::ostream& os, const Triangular& fib);
 
 protected:
     virtual void GenElems(int pos) const;

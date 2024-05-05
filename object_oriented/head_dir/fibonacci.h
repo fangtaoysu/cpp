@@ -12,9 +12,6 @@ public:
         : NumSequence(len, beg_pos, &kElems_) {
     }
     Fibonacci(const Fibonacci&); // 使用对象赋值的构造函数
-    virtual const char* WhatAmI() const {
-        return "Fibonacci";
-    }
 
 protected:
     virtual void GenElems(int pos) const;
