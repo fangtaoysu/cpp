@@ -8,8 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/fangtao/cpp/object-based/Triangular.cpp" "CMakeFiles/executable.dir/Triangular.cpp.o" "gcc" "CMakeFiles/executable.dir/Triangular.cpp.o.d"
-  "/home/fangtao/cpp/object-based/Triangular_iterator.cpp" "CMakeFiles/executable.dir/Triangular_iterator.cpp.o" "gcc" "CMakeFiles/executable.dir/Triangular_iterator.cpp.o.d"
+  "/home/fangtao/cpp/tool/tool.cpp" "CMakeFiles/executable.dir/home/fangtao/cpp/tool/tool.cpp.o" "gcc" "CMakeFiles/executable.dir/home/fangtao/cpp/tool/tool.cpp.o.d"
+  "/home/fangtao/cpp/object_based/main.cpp" "CMakeFiles/executable.dir/main.cpp.o" "gcc" "CMakeFiles/executable.dir/main.cpp.o.d"
+  "/home/fangtao/cpp/object_based/stack.cpp" "CMakeFiles/executable.dir/stack.cpp.o" "gcc" "CMakeFiles/executable.dir/stack.cpp.o.d"
+  "/home/fangtao/cpp/object_based/triangular.cpp" "CMakeFiles/executable.dir/triangular.cpp.o" "gcc" "CMakeFiles/executable.dir/triangular.cpp.o.d"
+  "/home/fangtao/cpp/object_based/triangular_iterator.cpp" "CMakeFiles/executable.dir/triangular_iterator.cpp.o" "gcc" "CMakeFiles/executable.dir/triangular_iterator.cpp.o.d"
   )
 
 # Targets to which this target links.

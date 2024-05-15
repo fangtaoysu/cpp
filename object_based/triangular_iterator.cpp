@@ -1,5 +1,5 @@
 #include "triangular.h"
-// #include <iterator_overflow.h>
+#include "iterator_overflow.h"
 
 
 bool TriangularIterator::operator==(const TriangularIterator &rhs) const {
@@ -16,9 +16,10 @@ int TriangularIterator::operator*() const {
 }
 
 void TriangularIterator::CheckIntegrity() const {
-    // if (index_ >= Triangular::max_elems_()) {
-    //     throw iterator_overflow();
-    // }
+    if (index_ >= Triangular::MaxElems()) {
+        IteratorOverflow ex(index_, Triangular::MaxElems());
+        throw ex;
+    }
 
     if (index_ >= Triangular::ElemSize()) {
         Triangular::GenElements(index_+1);

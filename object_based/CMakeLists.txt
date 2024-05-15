@@ -10,8 +10,10 @@ include_directories(object-based)
 
 file (GLOB MAIN
     "main.cpp"
-    "Triangular.cpp"
-    "Triangular_iterator.cpp"
+    "triangular.cpp"
+    "triangular_iterator.cpp"
+    "stack.cpp"
+    "../tool/tool.cpp"
     )
 
-add_executable(executable ${MAIN})
+add_executable(main ${MAIN})

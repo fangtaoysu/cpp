@@ -5,8 +5,7 @@
 #include "stack.h"
 #include "../tool/tool.h"
 #include "triangular.h"
-#include "triangular_iterator.h"
-// #include "num_sequence.h"
+#include "iterator_overflow.h"
 
 
 using namespace std;
@@ -90,8 +89,7 @@ void FindTriangular() {
 }
 
 void TestIterator() {
-    // issue function
-    Triangular train(8, 1);
+    Triangular train(345, 32745);
     Triangular::iterator it = train.begin();
     while (it != train.end()) {
         cout << *(it++) << ' ';
@@ -111,14 +109,22 @@ void TestOperator() {
     cout << tri2;
 }
 
-void TestPointers() {
-    // NumSequence ns;
-    // const int pos = 8;
-    // for (int ix = 0; ix < NumSequence::NumOfSequence(); ++ix) {
-    //     ns.SetSquence(NumSequence::(ix));
-    //     int elem_val = ns.Elem(pos);
-    //     Display(ns, pos, elem_val);
-    // }
+bool HasElem(Triangular::iterator first, Triangular::iterator last, int elem) {
+    bool status = true;
+    try {
+        while (first != last) {
+            if (*first == elem) {
+                return status;
+            }
+            ++first;
+        }
+    }
+    catch (IteratorOverflow &iof) {
+        iof.WhatHappend();
+        std::cout << "\ncheck if iterators address same container" << std::endl;
+    }
+    status = false;
+    return status;
 }
 
 int main() {
@@ -132,6 +138,10 @@ int main() {
 
     // TestOperator();
 
-    TestPointers();
+    Triangular tria(345, 32745);
+    Triangular::iterator it = tria.begin();
+
+    HasElem(tria.begin(), tria.end(), 10);
+
     return 0;
 }

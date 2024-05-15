@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fangtao/cpp/object-based
+CMAKE_SOURCE_DIR = /home/fangtao/cpp/object_based
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fangtao/cpp/object-based/build
+CMAKE_BINARY_DIR = /home/fangtao/cpp/object_based/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fangtao/cpp/object-based/build/CMakeFiles /home/fangtao/cpp/object-based/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fangtao/cpp/object_based/build/CMakeFiles /home/fangtao/cpp/object_based/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fangtao/cpp/object-based/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fangtao/cpp/object_based/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,65 +117,137 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named executable
+# Target rules for targets named main
 
 # Build rule for target.
-executable: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 executable
-.PHONY : executable
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-executable/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/build
-.PHONY : executable/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
-Triangular.o: Triangular.cpp.o
-.PHONY : Triangular.o
-
-# target to build an object file
-Triangular.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/Triangular.cpp.o
-.PHONY : Triangular.cpp.o
-
-Triangular.i: Triangular.cpp.i
-.PHONY : Triangular.i
-
-# target to preprocess a source file
-Triangular.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/Triangular.cpp.i
-.PHONY : Triangular.cpp.i
-
-Triangular.s: Triangular.cpp.s
-.PHONY : Triangular.s
-
-# target to generate assembly for a file
-Triangular.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/Triangular.cpp.s
-.PHONY : Triangular.cpp.s
-
-Triangular_iterator.o: Triangular_iterator.cpp.o
-.PHONY : Triangular_iterator.o
+home/fangtao/cpp/tool/tool.o: home/fangtao/cpp/tool/tool.cpp.o
+.PHONY : home/fangtao/cpp/tool/tool.o
 
 # target to build an object file
-Triangular_iterator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/Triangular_iterator.cpp.o
-.PHONY : Triangular_iterator.cpp.o
+home/fangtao/cpp/tool/tool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/fangtao/cpp/tool/tool.cpp.o
+.PHONY : home/fangtao/cpp/tool/tool.cpp.o
 
-Triangular_iterator.i: Triangular_iterator.cpp.i
-.PHONY : Triangular_iterator.i
+home/fangtao/cpp/tool/tool.i: home/fangtao/cpp/tool/tool.cpp.i
+.PHONY : home/fangtao/cpp/tool/tool.i
 
 # target to preprocess a source file
-Triangular_iterator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/Triangular_iterator.cpp.i
-.PHONY : Triangular_iterator.cpp.i
+home/fangtao/cpp/tool/tool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/fangtao/cpp/tool/tool.cpp.i
+.PHONY : home/fangtao/cpp/tool/tool.cpp.i
 
-Triangular_iterator.s: Triangular_iterator.cpp.s
-.PHONY : Triangular_iterator.s
+home/fangtao/cpp/tool/tool.s: home/fangtao/cpp/tool/tool.cpp.s
+.PHONY : home/fangtao/cpp/tool/tool.s
 
 # target to generate assembly for a file
-Triangular_iterator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/Triangular_iterator.cpp.s
-.PHONY : Triangular_iterator.cpp.s
+home/fangtao/cpp/tool/tool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/fangtao/cpp/tool/tool.cpp.s
+.PHONY : home/fangtao/cpp/tool/tool.cpp.s
+
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+stack.o: stack.cpp.o
+.PHONY : stack.o
+
+# target to build an object file
+stack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/stack.cpp.o
+.PHONY : stack.cpp.o
+
+stack.i: stack.cpp.i
+.PHONY : stack.i
+
+# target to preprocess a source file
+stack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/stack.cpp.i
+.PHONY : stack.cpp.i
+
+stack.s: stack.cpp.s
+.PHONY : stack.s
+
+# target to generate assembly for a file
+stack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/stack.cpp.s
+.PHONY : stack.cpp.s
+
+triangular.o: triangular.cpp.o
+.PHONY : triangular.o
+
+# target to build an object file
+triangular.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular.cpp.o
+.PHONY : triangular.cpp.o
+
+triangular.i: triangular.cpp.i
+.PHONY : triangular.i
+
+# target to preprocess a source file
+triangular.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular.cpp.i
+.PHONY : triangular.cpp.i
+
+triangular.s: triangular.cpp.s
+.PHONY : triangular.s
+
+# target to generate assembly for a file
+triangular.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular.cpp.s
+.PHONY : triangular.cpp.s
+
+triangular_iterator.o: triangular_iterator.cpp.o
+.PHONY : triangular_iterator.o
+
+# target to build an object file
+triangular_iterator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular_iterator.cpp.o
+.PHONY : triangular_iterator.cpp.o
+
+triangular_iterator.i: triangular_iterator.cpp.i
+.PHONY : triangular_iterator.i
+
+# target to preprocess a source file
+triangular_iterator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular_iterator.cpp.i
+.PHONY : triangular_iterator.cpp.i
+
+triangular_iterator.s: triangular_iterator.cpp.s
+.PHONY : triangular_iterator.s
+
+# target to generate assembly for a file
+triangular_iterator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular_iterator.cpp.s
+.PHONY : triangular_iterator.cpp.s
 
 # Help Target
 help:
@@ -185,13 +257,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... executable"
-	@echo "... Triangular.o"
-	@echo "... Triangular.i"
-	@echo "... Triangular.s"
-	@echo "... Triangular_iterator.o"
-	@echo "... Triangular_iterator.i"
-	@echo "... Triangular_iterator.s"
+	@echo "... main"
+	@echo "... home/fangtao/cpp/tool/tool.o"
+	@echo "... home/fangtao/cpp/tool/tool.i"
+	@echo "... home/fangtao/cpp/tool/tool.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... stack.o"
+	@echo "... stack.i"
+	@echo "... stack.s"
+	@echo "... triangular.o"
+	@echo "... triangular.i"
+	@echo "... triangular.s"
+	@echo "... triangular_iterator.o"
+	@echo "... triangular_iterator.i"
+	@echo "... triangular_iterator.s"
 .PHONY : help
 
 
