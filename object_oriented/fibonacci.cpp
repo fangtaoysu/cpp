@@ -1,14 +1,16 @@
 #include "head_dir/fibonacci.h"
 
 
-std::vector<int> Fibonacci::kElems_;
+template <int length, int beg_pos>
+std::vector<int> Fibonacci<length, beg_pos>::kElems_;
 
-Fibonacci::Fibonacci(const Fibonacci &rhs)
-    : NumSequence(rhs) { // 使用虚基类的默认构造函数
-}
+// Fibonacci::Fibonacci(const Fibonacci &rhs)
+//     : NumSequence(rhs) { // 使用虚基类的默认构造函数
+// }
 
 
-void Fibonacci::GenElems(int pos) const {
+template <int length, int beg_pos>
+void Fibonacci<length, beg_pos>::GenElems(int pos) const {
     if (kElems_.empty()) {
         kElems_.push_back(1);
         kElems_.push_back(1);

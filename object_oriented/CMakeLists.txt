@@ -10,14 +10,10 @@ file ( GLOB MAIN
     "main.cpp"
     "lib_mat.cpp"
     "book.cpp"
-    "audio_book.cpp"
-    "triangular.cpp"
-    "square.cpp"
-    "pentagonal.cpp"
-    "pell.cpp"
     "num_sequence.cpp"
-    "lucas.cpp"
     "fibonacci.cpp"
+
+    
 )
 
 add_executable(main ${MAIN})

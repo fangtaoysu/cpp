@@ -6,12 +6,13 @@
 #include <ostream>
 
 
-class Fibonacci : public NumSequence {
+template <int length, int beg_pos=1>
+class Fibonacci : public NumSequence<length, beg_pos> {
 public:
-    Fibonacci(int len=1, int beg_pos=1)
-        : NumSequence(len, beg_pos, &kElems_) {
+    Fibonacci()
+        : NumSequence<length, beg_pos>(&kElems_) {
     }
-    Fibonacci(const Fibonacci&); // 使用对象赋值的构造函数
+    // Fibonacci(const Fibonacci&); // 使用对象赋值的构造函数
 
 protected:
     virtual void GenElems(int pos) const;
