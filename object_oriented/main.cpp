@@ -30,40 +30,40 @@ void TestInherit() {
     Fibonacci fib3(8, 12);
     std::cout << fib3 << std::endl;
     
-    Lucas lucas1;
-    std::cout << lucas1 << std::endl;
-    Lucas lucas2(10);
-    std::cout << lucas2 << std::endl;
-    Lucas lucas3(8, 12);
-    std::cout << lucas3 << std::endl;
+    // Lucas lucas1;
+    // std::cout << lucas1 << std::endl;
+    // Lucas lucas2(10);
+    // std::cout << lucas2 << std::endl;
+    // Lucas lucas3(8, 12);
+    // std::cout << lucas3 << std::endl;
     
-    Pell pell1;
-    std::cout << pell1 << std::endl;
-    Pell pell2(10);
-    std::cout << pell2 << std::endl;
-    Pell pell3(8, 12);
-    std::cout << pell3 << std::endl;
+    // Pell pell1;
+    // std::cout << pell1 << std::endl;
+    // Pell pell2(10);
+    // std::cout << pell2 << std::endl;
+    // Pell pell3(8, 12);
+    // std::cout << pell3 << std::endl;
     
-    Pentagonal penta1;
-    std::cout << penta1 << std::endl;
-    Pentagonal penta2(10);
-    std::cout << penta2 << std::endl;
-    Pentagonal penta3(8, 12);
-    std::cout << penta3 << std::endl;
+    // Pentagonal penta1;
+    // std::cout << penta1 << std::endl;
+    // Pentagonal penta2(10);
+    // std::cout << penta2 << std::endl;
+    // Pentagonal penta3(8, 12);
+    // std::cout << penta3 << std::endl;
     
-    Square square1;
-    std::cout << square1 << std::endl;
-    Square square2(10);
-    std::cout << square2 << std::endl;
-    Square square3(8, 12);
-    std::cout << square3 << std::endl;
+    // Square square1;
+    // std::cout << square1 << std::endl;
+    // Square square2(10);
+    // std::cout << square2 << std::endl;
+    // Square square3(8, 12);
+    // std::cout << square3 << std::endl;
     
-    Triangular tria1;
-    std::cout << tria1 << std::endl;
-    Triangular tria2(10);
-    std::cout << tria2 << std::endl;
-    Triangular tria3(8, 12);
-    std::cout << tria3 << std::endl;
+    // Triangular tria1;
+    // std::cout << tria1 << std::endl;
+    // Triangular tria2(10);
+    // std::cout << tria2 << std::endl;
+    // Triangular tria3(8, 12);
+    // std::cout << tria3 << std::endl;
 
 }
 
