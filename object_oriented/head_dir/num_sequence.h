@@ -4,8 +4,6 @@
 #include <iostream>
 #include <ostream>
 
-
-template <int length, int beg_pos>
 class NumSequence{
 public:
     // 非虚函数在编译时完成解析，因此析构函数必须是虚函数

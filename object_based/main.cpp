@@ -6,6 +6,7 @@
 #include "../tool/tool.h"
 #include "triangular.h"
 #include "triangular_iterator.h"
+// #include "num_sequence.h"
 
 
 using namespace std;
@@ -110,6 +111,15 @@ void TestOperator() {
     cout << tri2;
 }
 
+void TestPointers() {
+    // NumSequence ns;
+    // const int pos = 8;
+    // for (int ix = 0; ix < NumSequence::NumOfSequence(); ++ix) {
+    //     ns.SetSquence(NumSequence::(ix));
+    //     int elem_val = ns.Elem(pos);
+    //     Display(ns, pos, elem_val);
+    // }
+}
 
 int main() {
     // TestStack();
@@ -120,6 +130,8 @@ int main() {
 
     // TestIterator();
 
-    TestOperator();
+    // TestOperator();
+
+    TestPointers();
     return 0;
 }

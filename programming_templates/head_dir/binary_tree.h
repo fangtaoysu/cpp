@@ -22,7 +22,6 @@ public:
     BinaryTree(const BinaryTree&);
     ~BinaryTree();
     BTNode<elemType>& operator=(const BinaryTree&);
-    friend ostrream& operator<<(ostream&, const BinaryTree<elemType>&);
     void Insert(const elemType&);
     void Remove(const elemType&);
     void PreOrder(std::ostream &os=std::cout) const {
@@ -71,13 +70,6 @@ inline BTNode<elemType>& BinaryTree<elemType>::operator=(const BinaryTree& rhs) 
         copy(root_, rhs.root_);
     }
     return *this;
-}
-
-template <typename elemType>
-inline ostream& operator<<(ostream &os, const BinaryTree<elemType> &bt) {
-    os << "Tree: " << std::endl;
-    bt.print(os);
-    return os;
 }
 
 template <typename elemType>
