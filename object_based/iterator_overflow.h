@@ -2,8 +2,9 @@
 #define ITERATOR_OVERFLOW_H
 
 #include <ostream>
+#include <exception>
 
-class IteratorOverflow {
+class IteratorOverflow : public exception{
 private:
     int index_;
     int max_;
@@ -17,6 +18,7 @@ public:
     int max() {
         return max_;
     }
+    const char* what() const;
     void WhatHappend(std::ostream &os=std::cerr) {
         os << "Internal error: current index is " << index_
            << ", exceeds maximum bound: " << max_;
