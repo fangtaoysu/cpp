@@ -1,0 +1,21 @@
+#ifndef FIBONACCI_H
+#define FIBONACCI_H
+#include "num_sequence.h"
+#include <iostream>
+#include <vector>
+#include <ostream>
+
+template <int length, int beg_pos=1>
+class Fibonacci : public NumSequence<length, beg_pos> {
+public:
+    Fibonacci(): NumSequence<length, beg_pos=1>(&kElems_) {
+    }
+    // Fibonacci(const Fibonacci&); // 使用对象赋值的构造函数
+
+protected:
+    virtual void GenElems(int pos) const;
+    static std::vector<int> kElems_;
+};
+
+
+#endif

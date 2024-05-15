@@ -1,0 +1,3 @@
+/home/fangtao/cpp/programming_templates/build/CMakeFiles/executable.dir
+/home/fangtao/cpp/programming_templates/build/CMakeFiles/edit_cache.dir
+/home/fangtao/cpp/programming_templates/build/CMakeFiles/rebuild_cache.dir
