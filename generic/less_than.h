@@ -1,27 +1,56 @@
 #ifndef LESS_THAN_H
 #define LESS_THAN_H
 
+#include <string>
+
+template <typename elemType>
 class LessThan {
 public:
-    LessThan(int val): val_(val) {
+    LessThan(const elemType val): val_(val) {
     }
-
     // 基值的读写
-    int CompVal() const {
+    const elemType CompVal() const {
         return val_;
     }
-    void CompVal(int nval) {
+    void CompVal(const elemType nval) {
         val_ = nval;
     }
     // 重载括号运算符实现 function object
-    bool operator()(int value) const;
+    bool operator()(const elemType value) const;
 
 private:
-    int val_;
+    const elemType val_;
 };
 
-inline bool LessThan::operator()(int value) const {
+template <typename elemType>
+inline bool LessThan<elemType>::operator()(const elemType value) const {
     return value < val_;
 }
 
 #endif
+
+template <typename elemType, typename Comp=LessThan<elemType> >
+class LessThanPred{
+public:
+    LessThanPred(const elemType& val)
+        :val_(val) {
+    }
+    bool operator() (const elemType& new_val) {
+        return new_val < val_;
+    }
+    const elemType CompVal() const {
+        return val_;
+    }
+    void CompVal(const elemType& new_val) const {
+        val_ = new_val;
+    }
+private:
+    elemType val_;
+};
+
+class StringLen {
+public:
+    bool operator() (const std::string &s1, const std::string &s2) {
+        return s1.size() < s2.size();
+    }
+};

@@ -10,8 +10,8 @@
 
 using namespace std;
 int CountLessThan(const vector<int> &vec, int comp) {
-    LessThan lt(comp);
-
+    // LessThan<int> lt(comp);
+    LessThanPred<int> lt(comp);
     int count = 0;
     for (int ix = 0; ix < vec.size(); ++ix) {
         if (lt(vec[ix])) {
@@ -22,7 +22,8 @@ int CountLessThan(const vector<int> &vec, int comp) {
 }
 
 void PrintLessThan(const vector<int> &vec, int comp) {
-    LessThan lt(comp);
+    // LessThan<int> lt(comp);
+    LessThanPred<int> lt(comp);
     vector<int>::const_iterator iter = vec.begin();
     vector<int>::const_iterator it_end = vec.end();
 
