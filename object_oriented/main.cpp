@@ -4,11 +4,11 @@
 #include "head_dir/audio_book.h"
 #include "head_dir/num_sequence.h"
 #include "head_dir/fibonacci.h"
-// #include "head_dir/pell.h"
-// #include "head_dir/lucas.h"
-// #include "head_dir/pentagonal.h"
-// #include "head_dir/square.h"
-// #include "head_dir/triangular.h"
+#include "head_dir/pell.h"
+#include "head_dir/lucas.h"
+#include "head_dir/pentagonal.h"
+#include "head_dir/square.h"
+#include "head_dir/triangular.h"
 
 
 void Print(const LibMat &mat) {
@@ -23,11 +23,11 @@ void TestClass() {
 }
 
 void TestInherit() {
-    Fibonacci<8> fib1;
+    Fibonacci fib1;
     std::cout << fib1 << std::endl;
-    Fibonacci<8, 8> fib2;
+    Fibonacci fib2(8);
     std::cout << fib2 << std::endl;
-    Fibonacci<12, 8> fib3;
+    Fibonacci fib3(3, 8);
     std::cout << fib3 << std::endl;
     
     Lucas lucas1;

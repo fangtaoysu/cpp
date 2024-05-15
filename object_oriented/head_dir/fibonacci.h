@@ -5,12 +5,10 @@
 #include <vector>
 #include <ostream>
 
-
-template <int length, int beg_pos=1>
-class Fibonacci : public NumSequence<length, beg_pos> {
+class Fibonacci : public NumSequence {
 public:
-    Fibonacci()
-        : NumSequence<length, beg_pos>(&kElems_) {
+    Fibonacci(int len=1, int beg_pos=1)
+        : NumSequence(len, beg_pos, &kElems_) {
     }
     // Fibonacci(const Fibonacci&); // 使用对象赋值的构造函数
 

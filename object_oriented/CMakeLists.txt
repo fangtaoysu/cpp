@@ -12,8 +12,11 @@ file ( GLOB MAIN
     "book.cpp"
     "num_sequence.cpp"
     "fibonacci.cpp"
-
-    
+    "pell.cpp"
+    "lucas.cpp"
+    "pentagonal.cpp"
+    "square.cpp"
+    "triangular.cpp"
 )
 
 add_executable(main ${MAIN})

@@ -157,4 +157,9 @@ CMakeFiles/main.dir/main.cpp.o: \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
  /home/fangtao/cpp/object_oriented/head_dir/fibonacci.h \
- /home/fangtao/cpp/object_oriented/head_dir/num_sequence.h
+ /home/fangtao/cpp/object_oriented/head_dir/num_sequence.h \
+ /home/fangtao/cpp/object_oriented/head_dir/pell.h \
+ /home/fangtao/cpp/object_oriented/head_dir/lucas.h \
+ /home/fangtao/cpp/object_oriented/head_dir/pentagonal.h \
+ /home/fangtao/cpp/object_oriented/head_dir/square.h \
+ /home/fangtao/cpp/object_oriented/head_dir/triangular.h

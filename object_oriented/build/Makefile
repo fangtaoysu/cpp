@@ -201,6 +201,30 @@ lib_mat.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/lib_mat.cpp.s
 .PHONY : lib_mat.cpp.s
 
+lucas.o: lucas.cpp.o
+.PHONY : lucas.o
+
+# target to build an object file
+lucas.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/lucas.cpp.o
+.PHONY : lucas.cpp.o
+
+lucas.i: lucas.cpp.i
+.PHONY : lucas.i
+
+# target to preprocess a source file
+lucas.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/lucas.cpp.i
+.PHONY : lucas.cpp.i
+
+lucas.s: lucas.cpp.s
+.PHONY : lucas.s
+
+# target to generate assembly for a file
+lucas.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/lucas.cpp.s
+.PHONY : lucas.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -249,6 +273,102 @@ num_sequence.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/num_sequence.cpp.s
 .PHONY : num_sequence.cpp.s
 
+pell.o: pell.cpp.o
+.PHONY : pell.o
+
+# target to build an object file
+pell.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pell.cpp.o
+.PHONY : pell.cpp.o
+
+pell.i: pell.cpp.i
+.PHONY : pell.i
+
+# target to preprocess a source file
+pell.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pell.cpp.i
+.PHONY : pell.cpp.i
+
+pell.s: pell.cpp.s
+.PHONY : pell.s
+
+# target to generate assembly for a file
+pell.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pell.cpp.s
+.PHONY : pell.cpp.s
+
+pentagonal.o: pentagonal.cpp.o
+.PHONY : pentagonal.o
+
+# target to build an object file
+pentagonal.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pentagonal.cpp.o
+.PHONY : pentagonal.cpp.o
+
+pentagonal.i: pentagonal.cpp.i
+.PHONY : pentagonal.i
+
+# target to preprocess a source file
+pentagonal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pentagonal.cpp.i
+.PHONY : pentagonal.cpp.i
+
+pentagonal.s: pentagonal.cpp.s
+.PHONY : pentagonal.s
+
+# target to generate assembly for a file
+pentagonal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pentagonal.cpp.s
+.PHONY : pentagonal.cpp.s
+
+square.o: square.cpp.o
+.PHONY : square.o
+
+# target to build an object file
+square.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/square.cpp.o
+.PHONY : square.cpp.o
+
+square.i: square.cpp.i
+.PHONY : square.i
+
+# target to preprocess a source file
+square.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/square.cpp.i
+.PHONY : square.cpp.i
+
+square.s: square.cpp.s
+.PHONY : square.s
+
+# target to generate assembly for a file
+square.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/square.cpp.s
+.PHONY : square.cpp.s
+
+triangular.o: triangular.cpp.o
+.PHONY : triangular.o
+
+# target to build an object file
+triangular.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular.cpp.o
+.PHONY : triangular.cpp.o
+
+triangular.i: triangular.cpp.i
+.PHONY : triangular.i
+
+# target to preprocess a source file
+triangular.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular.cpp.i
+.PHONY : triangular.cpp.i
+
+triangular.s: triangular.cpp.s
+.PHONY : triangular.s
+
+# target to generate assembly for a file
+triangular.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/triangular.cpp.s
+.PHONY : triangular.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,12 +387,27 @@ help:
 	@echo "... lib_mat.o"
 	@echo "... lib_mat.i"
 	@echo "... lib_mat.s"
+	@echo "... lucas.o"
+	@echo "... lucas.i"
+	@echo "... lucas.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... num_sequence.o"
 	@echo "... num_sequence.i"
 	@echo "... num_sequence.s"
+	@echo "... pell.o"
+	@echo "... pell.i"
+	@echo "... pell.s"
+	@echo "... pentagonal.o"
+	@echo "... pentagonal.i"
+	@echo "... pentagonal.s"
+	@echo "... square.o"
+	@echo "... square.i"
+	@echo "... square.s"
+	@echo "... triangular.o"
+	@echo "... triangular.i"
+	@echo "... triangular.s"
 .PHONY : help
 
 
