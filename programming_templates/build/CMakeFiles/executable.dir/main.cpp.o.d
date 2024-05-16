@@ -152,11 +152,4 @@ CMakeFiles/executable.dir/main.cpp.o: \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
  /home/fangtao/cpp/programming_templates/../tool/print_it.h \
- /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc \
- /home/fangtao/cpp/programming_templates/head_dir/fibonacci.h \
- /home/fangtao/cpp/programming_templates/head_dir/num_sequence.h \
- /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc \
- /home/fangtao/cpp/programming_templates/head_dir/num_sequence.h
+ /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc

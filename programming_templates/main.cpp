@@ -3,8 +3,6 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "head_dir/fibonacci.h"
-#include "head_dir/num_sequence.h"
 
 void TestTree() {
     // issue1
@@ -24,8 +22,8 @@ void TestTree() {
     // bt.Insert("Pooh");
     // bt.Insert("Kanga");
 
-    // std::cout << "Preorder traversal: \n";
-    // bt.PreOrder();
+    std::cout << "Preorder traversal: \n";
+    bt.PreOrder();
     
     // bt.Remove("Piglet");
     // bt.Remove(2);
@@ -58,21 +56,24 @@ void TestConvert() {
     std::cout << msg.str();
 }
 
-void TestInherit() {
-    // issue2
-    // 主要用于测试表达式作为参数的类模版
-    Fibonacci<4> fib1;
-    std::cout << fib1 << std::endl;
-    Fibonacci<8, 9> fib2;
-    std::cout << fib2 << std::endl;
-    Fibonacci<12, 13> fib3;
-    std::cout << fib3 << std::endl;
+template <int N>
+struct Factorial {
+    static const int value = N * Factorial<N - 1>::value;
+};
+template <>
+struct Factorial<0> {
+    static const int value = 1;
+};
+void TestExpression() {
+    // 表达式作为模版参数：在编译时运算，用于固定数字的计算
+    constexpr int result = Factorial<5>::value;
+    std::cout << "Factorial of 5: " << result << std::endl;
 }
 
 int main() {
     TestTree();
     // TestPrint();
     // TestConvert();
-    TestInherit();
+    // TestExpression();
     return 0;
 }

@@ -10,8 +10,6 @@ include_directories(object-based)
 
 file (GLOB MAIN
     "main.cpp"
-    "fibonacci.cpp"
-    "num_sequence.cpp"
     "binary_tree.cpp"
     "binary_tree_node.cpp"
     )
