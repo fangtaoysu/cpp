@@ -1,3 +1,0 @@
-/home/fangtao/cpp/object_oriented/build/CMakeFiles/main.dir
-/home/fangtao/cpp/object_oriented/build/CMakeFiles/edit_cache.dir
-/home/fangtao/cpp/object_oriented/build/CMakeFiles/rebuild_cache.dir
