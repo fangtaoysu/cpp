@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/fangtao/cpp/essential_cpp/programming_templates/object-based
+CXX_INCLUDES = -I/home/fangtao/cpp/essential_cpp/programming_templates/head_dir
 
 CXX_FLAGS = -std=gnu++11
 

@@ -8,9 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/fangtao/cpp/programming_templates/binary_tree.cpp" "CMakeFiles/executable.dir/binary_tree.cpp.o" "gcc" "CMakeFiles/executable.dir/binary_tree.cpp.o.d"
-  "/home/fangtao/cpp/programming_templates/binary_tree_node.cpp" "CMakeFiles/executable.dir/binary_tree_node.cpp.o" "gcc" "CMakeFiles/executable.dir/binary_tree_node.cpp.o.d"
-  "/home/fangtao/cpp/programming_templates/main.cpp" "CMakeFiles/executable.dir/main.cpp.o" "gcc" "CMakeFiles/executable.dir/main.cpp.o.d"
+  "/home/fangtao/cpp/essential_cpp/programming_templates/binary_tree_node.cpp" "CMakeFiles/executable.dir/binary_tree_node.cpp.o" "gcc" "CMakeFiles/executable.dir/binary_tree_node.cpp.o.d"
+  "/home/fangtao/cpp/essential_cpp/programming_templates/main.cpp" "CMakeFiles/executable.dir/main.cpp.o" "gcc" "CMakeFiles/executable.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.

@@ -1,7 +1,7 @@
 CMakeFiles/executable.dir/binary_tree_node.cpp.o: \
- /home/fangtao/cpp/programming_templates/binary_tree_node.cpp \
+ /home/fangtao/cpp/essential_cpp/programming_templates/binary_tree_node.cpp \
  /usr/include/stdc-predef.h \
- /home/fangtao/cpp/programming_templates/head_dir/binary_tree_node.h \
+ /home/fangtao/cpp/essential_cpp/programming_templates/head_dir/binary_tree_node.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

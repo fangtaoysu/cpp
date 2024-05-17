@@ -85,7 +85,7 @@ void BinaryTree<elemType>::copy(BTNode<elemType>*& tar, BTNode<elemType>*& src) 
 
 template <typename elemType>
 inline void BinaryTree<elemType>::Insert(const elemType &elem) {
-    std::cout << elem << std::endl;
+    // std::cout << elem << std::endl;
     if (!root_) {
         root_ = new BTNode<elemType>(elem);
     } else {
@@ -106,11 +106,23 @@ inline void BinaryTree<elemType>::Remove(const elemType &elem) {
 
 template <typename elemType>
 void BinaryTree<elemType>::RemoveRoot() {
+    /**
+     * 移除根节点的策略：
+     *  1. 如果根的右孩子：
+     *      1.1 为空：根设为左孩子
+     *      1.2 不为空：根设为右孩子r
+     *          1.2.1 如果根的左孩子l
+     *              - 为空：不操作
+     *              - 不为空，如果右孩子r的左孩子
+     *                  为空：此位置留给左孩子l
+     *                  不为空：找到右孩子最左的叶子节点，留个左孩子l
+    */
     if (!root_) {
         return;        
     }
     BTNode<elemType> *tmp = root_;
     if (root_->rchild_) {
+        root_ = root_->rchild_;
         if (tmp->lchild_) {
             BTNode<elemType> *lc = tmp->lchild_;
             BTNode<elemType> *newlc = root_->lchild_;
@@ -123,7 +135,7 @@ void BinaryTree<elemType>::RemoveRoot() {
     } else {
         root_ = root_->lchild_;
     }
-    delete tmp;
+    // delete tmp;
 }
 
 template <typename elemType>

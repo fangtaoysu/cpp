@@ -11,9 +11,7 @@ class BinaryTree; // 声明类
 template <typename valType>
 class BTNode {
 private:
-    void LChildLeaf(BTNode *leaf, BTNode *sub_tree);
     int cnt_;
-    
     void DisplayVal(BTNode *pt, std::ostream &os) const {
         if (pt) {
             os << *pt << " ";
@@ -24,8 +22,9 @@ public:
     valType val_;
     BTNode *lchild_;
     BTNode *rchild_;
+    static void LChildLeaf(BTNode *leaf, BTNode *sub_tree);
     void InsertValue(const valType&);
-    void RemoveValue(const valType&, BTNode *&prev);
+    void RemoveValue(const valType&, BTNode *&);
     BTNode(const valType&);
     ~BTNode();
     // template <typename elemType>
@@ -34,6 +33,12 @@ public:
     void InOrder(BTNode *pt, std::ostream &os) const;
     void PostOrder(BTNode *pt, std::ostream &os) const;
 };
+
+template <typename valType>
+std::ostream& operator<<(std::ostream& os, const BTNode<valType>& node) {
+    os << node.val_;
+    return os;
+}
 
 // 此处将树中的节点对象一律按引用方式处理
 template <typename valType>
@@ -65,10 +70,11 @@ void BTNode<valType>::InsertValue(const valType &val) {
     }
 }
 
+// 定义的时候不用static关键字
 template <typename valType>
 void BTNode<valType>::LChildLeaf(BTNode *leaf, BTNode *sub_tree) {
     /**
-     * 找到子树的左叶子节点，将leaf设为子树的叶子节点
+     * 找到子树的最左叶子节点，将leaf设为子树的叶子节点
     */
     while (sub_tree->lchild_) {
         sub_tree = sub_tree->lchild_;
@@ -77,7 +83,8 @@ void BTNode<valType>::LChildLeaf(BTNode *leaf, BTNode *sub_tree) {
 }
 
 template <typename valType>
-void BTNode<valType>::RemoveValue(const valType &val, BTNode *& prev) {
+void BTNode<valType>::RemoveValue(const valType &val, BTNode*& prev) {
+    // 与MoveRoot()使用的是相同的策略
     if (val < val_) {
         if (!lchild_) {
             return;
@@ -94,20 +101,28 @@ void BTNode<valType>::RemoveValue(const valType &val, BTNode *& prev) {
     } else {
         if (rchild_) {
             prev = rchild_;
-            if (!prev->lchild_) {
-                prev->lchild_ = lchild_;
-            } else {
-                BTNode<valType>::LChildLeaf(lchild_, prev->lchild_);
+            if (lchild_) {
+                if (!prev->lchild_) {
+                    prev->lchild_ = lchild_;
+                } else {
+                    BTNode<valType>::LChildLeaf(lchild_, prev->lchild_);
+                }
             }
         } else {
             prev = lchild_;
         }
-        delete this;
+        // delete this;
     }
+    // if (prev == nullptr) {
+    //     std::cout << "prev is null\n";
+    // } else {
+    //     std::cout << "prev:" << prev->val_ << "\n";
+    // }
 }
 
 template <typename valType>
 void BTNode<valType>::PreOrder(BTNode *pt, std::ostream &os) const {
+    // std::cout << *pt << std::endl;
     if (pt) {
         DisplayVal(pt, os);
         if (pt->lchild_) {

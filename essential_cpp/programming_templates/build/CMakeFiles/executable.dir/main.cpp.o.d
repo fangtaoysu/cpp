@@ -1,7 +1,7 @@
 CMakeFiles/executable.dir/main.cpp.o: \
- /home/fangtao/cpp/programming_templates/main.cpp \
+ /home/fangtao/cpp/essential_cpp/programming_templates/main.cpp \
  /usr/include/stdc-predef.h \
- /home/fangtao/cpp/programming_templates/head_dir/binary_tree.h \
+ /home/fangtao/cpp/essential_cpp/programming_templates/head_dir/binary_tree.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -128,7 +128,7 @@ CMakeFiles/executable.dir/main.cpp.o: \
  /usr/include/c++/11/bits/functional_hash.h \
  /usr/include/c++/11/bits/hash_bytes.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /home/fangtao/cpp/programming_templates/head_dir/binary_tree_node.h \
+ /home/fangtao/cpp/essential_cpp/programming_templates/head_dir/binary_tree_node.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
@@ -151,5 +151,5 @@ CMakeFiles/executable.dir/main.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/fangtao/cpp/programming_templates/../tool/print_it.h \
+ /home/fangtao/cpp/essential_cpp/programming_templates/../tool/print_it.h \
  /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc

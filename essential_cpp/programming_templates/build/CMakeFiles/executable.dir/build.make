@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fangtao/cpp/programming_templates
+CMAKE_SOURCE_DIR = /home/fangtao/cpp/essential_cpp/programming_templates
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fangtao/cpp/programming_templates/build
+CMAKE_BINARY_DIR = /home/fangtao/cpp/essential_cpp/programming_templates/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/executable.dir/depend.make
@@ -69,63 +69,47 @@ include CMakeFiles/executable.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/executable.dir/flags.make
 
-CMakeFiles/executable.dir/binary_tree.cpp.o: CMakeFiles/executable.dir/flags.make
-CMakeFiles/executable.dir/binary_tree.cpp.o: ../binary_tree.cpp
-CMakeFiles/executable.dir/binary_tree.cpp.o: CMakeFiles/executable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fangtao/cpp/programming_templates/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/executable.dir/binary_tree.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/executable.dir/binary_tree.cpp.o -MF CMakeFiles/executable.dir/binary_tree.cpp.o.d -o CMakeFiles/executable.dir/binary_tree.cpp.o -c /home/fangtao/cpp/programming_templates/binary_tree.cpp
-
-CMakeFiles/executable.dir/binary_tree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/executable.dir/binary_tree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fangtao/cpp/programming_templates/binary_tree.cpp > CMakeFiles/executable.dir/binary_tree.cpp.i
-
-CMakeFiles/executable.dir/binary_tree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/executable.dir/binary_tree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fangtao/cpp/programming_templates/binary_tree.cpp -o CMakeFiles/executable.dir/binary_tree.cpp.s
-
 CMakeFiles/executable.dir/binary_tree_node.cpp.o: CMakeFiles/executable.dir/flags.make
 CMakeFiles/executable.dir/binary_tree_node.cpp.o: ../binary_tree_node.cpp
 CMakeFiles/executable.dir/binary_tree_node.cpp.o: CMakeFiles/executable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fangtao/cpp/programming_templates/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/executable.dir/binary_tree_node.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/executable.dir/binary_tree_node.cpp.o -MF CMakeFiles/executable.dir/binary_tree_node.cpp.o.d -o CMakeFiles/executable.dir/binary_tree_node.cpp.o -c /home/fangtao/cpp/programming_templates/binary_tree_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fangtao/cpp/essential_cpp/programming_templates/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/executable.dir/binary_tree_node.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/executable.dir/binary_tree_node.cpp.o -MF CMakeFiles/executable.dir/binary_tree_node.cpp.o.d -o CMakeFiles/executable.dir/binary_tree_node.cpp.o -c /home/fangtao/cpp/essential_cpp/programming_templates/binary_tree_node.cpp
 
 CMakeFiles/executable.dir/binary_tree_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/executable.dir/binary_tree_node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fangtao/cpp/programming_templates/binary_tree_node.cpp > CMakeFiles/executable.dir/binary_tree_node.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fangtao/cpp/essential_cpp/programming_templates/binary_tree_node.cpp > CMakeFiles/executable.dir/binary_tree_node.cpp.i
 
 CMakeFiles/executable.dir/binary_tree_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/executable.dir/binary_tree_node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fangtao/cpp/programming_templates/binary_tree_node.cpp -o CMakeFiles/executable.dir/binary_tree_node.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fangtao/cpp/essential_cpp/programming_templates/binary_tree_node.cpp -o CMakeFiles/executable.dir/binary_tree_node.cpp.s
 
 CMakeFiles/executable.dir/main.cpp.o: CMakeFiles/executable.dir/flags.make
 CMakeFiles/executable.dir/main.cpp.o: ../main.cpp
 CMakeFiles/executable.dir/main.cpp.o: CMakeFiles/executable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fangtao/cpp/programming_templates/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/executable.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/executable.dir/main.cpp.o -MF CMakeFiles/executable.dir/main.cpp.o.d -o CMakeFiles/executable.dir/main.cpp.o -c /home/fangtao/cpp/programming_templates/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fangtao/cpp/essential_cpp/programming_templates/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/executable.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/executable.dir/main.cpp.o -MF CMakeFiles/executable.dir/main.cpp.o.d -o CMakeFiles/executable.dir/main.cpp.o -c /home/fangtao/cpp/essential_cpp/programming_templates/main.cpp
 
 CMakeFiles/executable.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/executable.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fangtao/cpp/programming_templates/main.cpp > CMakeFiles/executable.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fangtao/cpp/essential_cpp/programming_templates/main.cpp > CMakeFiles/executable.dir/main.cpp.i
 
 CMakeFiles/executable.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/executable.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fangtao/cpp/programming_templates/main.cpp -o CMakeFiles/executable.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fangtao/cpp/essential_cpp/programming_templates/main.cpp -o CMakeFiles/executable.dir/main.cpp.s
 
 # Object files for target executable
 executable_OBJECTS = \
-"CMakeFiles/executable.dir/binary_tree.cpp.o" \
 "CMakeFiles/executable.dir/binary_tree_node.cpp.o" \
 "CMakeFiles/executable.dir/main.cpp.o"
 
 # External object files for target executable
 executable_EXTERNAL_OBJECTS =
 
-executable: CMakeFiles/executable.dir/binary_tree.cpp.o
 executable: CMakeFiles/executable.dir/binary_tree_node.cpp.o
 executable: CMakeFiles/executable.dir/main.cpp.o
 executable: CMakeFiles/executable.dir/build.make
 executable: CMakeFiles/executable.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fangtao/cpp/programming_templates/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable executable"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fangtao/cpp/essential_cpp/programming_templates/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable executable"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/executable.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -137,6 +121,6 @@ CMakeFiles/executable.dir/clean:
 .PHONY : CMakeFiles/executable.dir/clean
 
 CMakeFiles/executable.dir/depend:
-	cd /home/fangtao/cpp/programming_templates/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fangtao/cpp/programming_templates /home/fangtao/cpp/programming_templates /home/fangtao/cpp/programming_templates/build /home/fangtao/cpp/programming_templates/build /home/fangtao/cpp/programming_templates/build/CMakeFiles/executable.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fangtao/cpp/essential_cpp/programming_templates/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fangtao/cpp/essential_cpp/programming_templates /home/fangtao/cpp/essential_cpp/programming_templates /home/fangtao/cpp/essential_cpp/programming_templates/build /home/fangtao/cpp/essential_cpp/programming_templates/build /home/fangtao/cpp/essential_cpp/programming_templates/build/CMakeFiles/executable.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/executable.dir/depend
 

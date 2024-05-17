@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
-project(object-based)
+project(tempaltes)
 
 # 设置cpp标准
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 添加头文件目录
-include_directories(object-based)
+include_directories(head_dir)
 
 file (GLOB MAIN
     "main.cpp"
@@ -14,4 +14,4 @@ file (GLOB MAIN
     "binary_tree_node.cpp"
     )
 
-add_executable(executable ${MAIN})
+add_executable(main ${MAIN})
