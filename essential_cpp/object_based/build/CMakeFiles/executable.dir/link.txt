@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/executable.dir/home/fangtao/cpp/tool/tool.cpp.o CMakeFiles/executable.dir/main.cpp.o CMakeFiles/executable.dir/stack.cpp.o CMakeFiles/executable.dir/triangular.cpp.o CMakeFiles/executable.dir/triangular_iterator.cpp.o -o executable 
