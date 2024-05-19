@@ -1,5 +1,11 @@
 #include <iostream>
 #include <typeinfo>
+#include <string>
+
+using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
 
 
 void TestTypeConvert() {
@@ -44,21 +50,9 @@ void TestConst() {
               << ", k2: " << typeid(k2).name() << std::endl; // const int&
 }
 
-void Test() {
-    const int ci = 0;
-    const int &cj = ci;
-    decltype(ci) x = 3;
-    decltype(cj) y = 7;
-    std::cout << "ci: " << ci
-              << ", cj: " << cj
-              << ", x: " << x
-              << ", y: " << y << std::endl;
-}
-
 int main() {
-    // TestTypeConvert();
-    // TestConst();
-    Test();
+    TestTypeConvert();
+    TestConst();
 
     return 0;
 }
