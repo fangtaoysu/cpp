@@ -1,6 +1,9 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <iterator>
+using std::begin;
+using std::end;
 using std::string;
 using std::vector;
 using std::cout;
@@ -38,7 +41,9 @@ int main() {
     // vector<string> str_vec{"1234 567\n89", "abc def g\thj"};
     // string str = SplicingString(str_vec);
     // cout << str << endl;
-    vector<int > vec{1, 2, 3, 5, 9, 100};
+    // 使用数组给vector赋值
+    int arr[] = {1, 2, 3, 5, 9, 100};
+    vector<int > vec(begin(arr), end(arr));
     bool result = BinarySearch(vec, 5);
     if (result) {
         cout << "found it!" << endl;
