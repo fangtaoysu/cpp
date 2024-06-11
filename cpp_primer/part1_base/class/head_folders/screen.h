@@ -16,11 +16,15 @@ public:
     // 在类中声明内联
     inline char Get(pos_ ht, pos_ wd) const;
     Screen &Move(pos_ r, pos_ c);
+    void SomeMember() const;
+    Screen &Set(char); // 设置字符位置
+    Screen &Set(pos_, pos_, char);
 
 private:
     pos_ cursor_ = 0;
     pos_ height_ = 0, width_ = 0;
     string contents_;
+    mutable size_t access_ctr_; // mutable保证该对象在const对象内也能被修改
 };
 
 // 在类外声明内联
@@ -33,6 +37,16 @@ inline Screen &Screen::Move(pos_ r, pos_ c) {
 char Screen::Get(pos_ r, pos_ c) const {
     pos_ row = r * width_;
     return contents_[row + c];
+}
+
+inline Screen &Screen::Set(char c) {
+    contents_[cursor_] = c; // 设置当前光标所在位置的新值
+    return *this;
+}
+
+inline Screen &Screen::Set(pos_ r, pos_ col, char ch) {
+    contents_[r*width_ + col] = ch; // 设置指定位置的新值
+    return *this;
 }
 
 #endif

@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <cassert>
 #include "head_folders/sales_data.h"
+#include "head_folders/screen.h"
 
 using std::cout;
 using std::cin;
@@ -37,11 +38,13 @@ void TestSale() {
 }
 
 void TestScreen() {
-    
+    Screen my_screen;
+    my_screen.Move(4, 0).Set('#');
+    cout << my_screen.Get(4, 0) << endl;
 }
 
 int main() {
-    TestSale();
+    // TestSale();
     TestScreen();
     return 0;
 }
