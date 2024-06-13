@@ -1,20 +1,19 @@
-#include <vector>
+#include "head_folders/window_mgr.h"
 #include "head_folders/screen.h"
 
-class window_mgr {
-private:
-    /* data */
-    // vector 初始化
-    std::vector<Screen> screens{
-        Screen(23, 80, ' ')
-    };
-public:
-    window_mgr(/* args */);
-    ~window_mgr();
-};
 
-window_mgr::window_mgr(/* args */) {
+void WindowMGR::Clear(ScreenIndex i) {
+    Screen &s = screens_[i];
+    s.contents_ = string(s.height_ * s.width_, ' ');
 }
 
-window_mgr::~window_mgr() {
+WindowMGR::ScreenIndex WindowMGR::AddScreen(const Screen &s) {
+    screens_.push_back(s);
+    return screens_.size() - 1;
+}
+
+WindowMGR::WindowMGR::WindowMGR(/* args */) : screens_{Screen(24, 80, ' ')} {
+}
+
+WindowMGR::~WindowMGR() {
 }

@@ -1,10 +1,13 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 #include <string>
+#include "window_mgr.h"
 
 using std::string;
 
 class Screen {
+friend class WindowMGR;
+// friend void WindowMGR::Clear(ScreenIndex);
 public:
     typedef string::size_type pos_;
     Screen() = default;
@@ -19,12 +22,23 @@ public:
     void SomeMember() const;
     Screen &Set(char); // 设置字符位置
     Screen &Set(pos_, pos_, char);
+    Screen &Display(std::ostream &os) {
+        DoDisplay(os);
+        return *this;
+    }
+    const Screen &Display(std::ostream &os) const {
+        DoDisplay(os);
+        return *this;
+    }
 
 private:
     pos_ cursor_ = 0;
     pos_ height_ = 0, width_ = 0;
     string contents_;
     mutable size_t access_ctr_; // mutable保证该对象在const对象内也能被修改
+    void DoDisplay(std::ostream &os) const {
+        os << contents_;
+    }
 };
 
 // 在类外声明内联

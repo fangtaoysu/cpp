@@ -38,9 +38,11 @@ void TestSale() {
 }
 
 void TestScreen() {
-    Screen my_screen;
-    my_screen.Move(4, 0).Set('#');
-    cout << my_screen.Get(4, 0) << endl;
+    Screen my_screen(5, 5, 'X');
+    my_screen.Move(4, 0).Set('#').Display(cout);
+    cout << endl;
+    my_screen.Display(cout);
+    cout << endl;
 }
 
 int main() {

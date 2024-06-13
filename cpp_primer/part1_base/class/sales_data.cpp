@@ -14,9 +14,9 @@ SalesData& SalesData::Combine(const SalesData &rhs) {
     return *this; // 其他成员使用调用对象的成员
 }
 
-SalesData::SalesData(istream &is) {
-    Read(is, *this);
-}
+// SalesData::SalesData(istream &is) {
+//     Read(is, *this);
+// }
 
 istream &Read(istream &is, SalesData &item) {
     double price = 0;
