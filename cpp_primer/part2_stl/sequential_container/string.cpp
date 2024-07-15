@@ -63,17 +63,36 @@ void FindAllNumber(const std::string &number, const std::string &name) {
     }
 }
 
+void FindNumberAndLetter(const std::string &s, const std::string &number) {
+    std::string::size_type pos = 0;
+    while ((pos = s.find_first_of(number, pos)) != std::string::npos) {
+        cout << "number: " << s[pos]
+             << "\tindex: " << pos << endl;
+        ++pos;
+    }
+    pos = 0;
+    while ((pos = s.find_first_not_of(number, pos)) != std::string::npos) {
+        cout << "letter: " << s[pos]
+             << "\tindex: " << pos << endl;
+        ++pos;
+    }
+}
+
 int main() {
     // TestConstruct();
-    std::string s = "abcbbbb";
-    ReplaceAll(s, "bb", "*");
-    Print(s);
-    std::string pre = "hello, ", end = "~";
-    std::string result = AddString(s, pre, end);
-    Print(result);
-    std::string number("0123456789"), name("abc123");
-    FindAllNumber(number, name);
-    std::string::size_type pos = name.find(number); // 查字符串
-    cout << pos << endl;
+    // std::string s = "abcbbbb";
+    // ReplaceAll(s, "bb", "*");
+    // Print(s);
+    // std::string pre = "hello, ", end = "~";
+    // std::string result = AddString(s, pre, end);
+    // Print(result);
+    // std::string number("0123456789"), name("abc123");
+    // FindAllNumber(number, name);
+    // std::string::size_type pos = name.find(number); // 查字符串
+    // cout << pos << endl;
+
+    std::string s = "ab23c5D43J53H6";
+    std::string number = "0123456789";
+    FindNumberAndLetter(s, number);
     return 0;
 }
