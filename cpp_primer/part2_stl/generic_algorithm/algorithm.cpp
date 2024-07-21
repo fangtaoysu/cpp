@@ -19,8 +19,9 @@ void ReadAlgorithm() {
               << "\nstring vector sum is: " << ssum << std::endl; 
 }
 
-void Display(const std::vector<int>::iterator beg, const std::vector<int>::iterator end) {
-    std::vector<int>::iterator it = beg;
+template <typename Iterator>
+void Display(const Iterator beg, const Iterator end) {
+    Iterator it = beg;
     while (it != end) {
         std::cout << *it++ << "\t";
     }
@@ -56,7 +57,7 @@ void WriteAlgorithm() {
     Display(vec1.begin(), vec1.end());
 }
 
-void elim_dups(std::vector<int> &vec) {
+void ElimDups(std::vector<int> &vec) {
     std::sort(vec.begin(), vec.end());
     // unqiue将相邻中重复的元素去掉，并返回最后一个不重复元素之后的位置
     auto end_unique = std::unique(vec.begin(), vec.end());
@@ -68,7 +69,7 @@ void elim_dups(std::vector<int> &vec) {
 
 void SortAlgorithm() {
     /**
-     * 等价于 elim_dups(vec);
+     * 等价于 ElimDups(vec);
      */
     std::vector<int> vec = {1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 9};
     auto first = vec.begin();
