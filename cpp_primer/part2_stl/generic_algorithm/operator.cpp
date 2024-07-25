@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 void ElimDups(std::vector<std::string> &vec) {
     std::sort(vec.begin(), vec.end());
@@ -36,21 +37,27 @@ void Biggies(std::vector<std::string> &words, std::vector<std::string>::size_typ
         return s1.size() < s2.size();
     });
     // 获取一个迭代器，指向第一个满足 size() >= sz 的元素
-    // find_if 找到第一个满足条件的
+    // 方案1：find_if 找到第一个满足条件的
     // auto first_it = std::find_if(words.begin(), words.end(), [sz] (const std::string &s) -> bool {
     //     return s.size() >= sz;
     // });
-    // partition 谓词为true的在前半部分，谓词为false的在后半部分
+    // 方案2：partition 谓词为true的在前半部分，谓词为false的在后半部分
     auto first_it = std::partition(words.begin(), words.end(), [sz] (const std::string &s) -> bool {
         return s.size() < sz;
     });
+    // count_if 返回谓词多少次为真
+    auto count = std::count_if(words.begin(), words.end(), [sz] (const std::string &s) {
+        return s.size() >= sz;
+    }); 
+    std::cout << "length more than " << sz
+              << " words have " << count << std::endl;
     // 打印长度大于等于给定值的单词
     std::for_each(first_it, words.end(), [&os, c] (const std::string &s) {os << s << c;});
     std::cout << std::endl;
 }
 
-bool MoreThan5(const std::string &s) {
-    return s.size() > 5;
+bool MoreThan3(const std::string &s) {
+    return s.size() > 3;
 }
 
 void TestLambda(std::vector<std::string> &words) {
@@ -73,19 +80,52 @@ void TestLambda(std::vector<std::string> &words) {
     std::cout << j << std::endl;
 }
 
+int MoreThan(const std::string &s, size_t sz) {
+    return s.size() > sz;
+}
+
+int LessThan(const std::string &s, size_t sz) {
+    return s.size() <= sz;
+}
+
+std::ostream& Print(std::ostream &os, const std::string &s, char c) {
+    return os << s << c;
+}
+
+void TestBind(std::vector<std::string> &words, std::ostream &os=std::cout, char c=' ') {
+    ElimDups(words);
+    Display(words.begin(), words.end());
+    // stable_sort 接受一个二元谓词（如果传入函数，参数个数只能是2）
+    std::stable_sort(words.begin(), words.end(), InShorter);
+    Display(words.begin(), words.end());
+
+    // auto first_it = std::find_if(words.begin(), words.end(), MoreThan3);
+    int sz = 3;
+    // auto first_it = std::find_if(words.begin(), words.end(), std::bind(MoreThan, std::placeholders::_1, sz));
+    auto first_it = std::partition(words.begin(), words.end(), std::bind(LessThan, std::placeholders::_1, sz));
+
+    // bind 传递引用
+    // 方案1：模版
+    // Display(first_it, words.end());
+    // 方案2：lambda
+    // std::ostream &os = std::cout;
+    // char c = ' ';
+    // std::for_each(first_it, words.end(), [&os, c] (const std::string &s) {
+    //     os << s << c;
+    // });
+    // 方案3：bind
+    // ref 为 bind传递引用对象
+    std::for_each(first_it, words.end(), std::bind(Print, std::ref(os), std::placeholders::_1, c));
+
+}
+
 int main() {
     std::vector<std::string> words = {
         "the", "red", "fox", "quick", "a", "an", "jumps", "turtle"
     };
-    // ElimDups(words);
-    // Display(words.begin(), words.end());
-    // std::stable_sort(words.begin(), words.end(), InShorter);
-    // Display(words.begin(), words.end());
 
-    // std::partition(words.begin(), words.end, MoreThan5);
-    // Display(words.begin(), words.end());
-
-    TestLambda(words);
-
+    // TestLambda(words);
     // Biggies(words, 4);
+    TestBind(words);
+    
 }
