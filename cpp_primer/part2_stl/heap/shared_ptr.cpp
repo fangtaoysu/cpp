@@ -22,14 +22,11 @@ void TestSharedPtr() {
 }
 
 void TestBlob() {
-    StrBlob b1;
-    StrBlob b2 = {"a", "an", "the"};
-    {
-        b1 = b2;
-        b2.PushBack("about");
+    StrBlob b1 = {"a", "an", "the"};
+    auto beg = b1.begin();
+    while (beg != b1.end()) {
+        std::cout << *beg++ << std::endl;
     }
-    b1.Print();
-    b2.Print();
 }
 
 void TestMemory() {
@@ -84,7 +81,8 @@ void WriteAndReadVec1() {
 
 void WriteAndReadVec2() {
     // shared_ptr<T>p(q) p是shared_ptr的拷贝
-    std::shared_ptr<std::vector<int>> ivec_pointer(ReturnVec());
+    // std::shared_ptr<std::vector<int>> ivec_pointer = std::make_shared<std::vector<int>>(*(ReturnVec()));
+    std::shared_ptr<std::vector<int>> ivec_pointer(ReturnVec()); //  使用new返回的指针初始化一个指针，与上面等价
     std::string word;
     while (std::cin >> word) {
         int val = std::stoi(word);
@@ -102,14 +100,67 @@ void PrintVec(const std::vector<int>& ivec) {
 }
 
 void TestProblem() {
-    WriteAndReadVec1();
-    // WriteAndReadVec2();
+    // WriteAndReadVec1();
+    WriteAndReadVec2();
+}
+
+void Process(std::shared_ptr<int> p) {
+    // 进入函数后，形参指向pointer所指位置，所以智能指针有两个
+    // use_count 返回与p共享对象的智能指针的数量
+    std::cout << p.use_count() << std::endl;
+    // 函数执行完成，形参p被释放，智能指针变成一个
+}
+
+std::shared_ptr<int> ReturnIntP(int p) {
+    // 传入类型和值，创建对应的shared_ptr类型
+    // return std::make_shared<int>(p);
+    // 根据new的指针创建shared_ptr
+    return std::shared_ptr<int>(new int(p));
+}
+
+void TestMixed() {
+    // 不要混用普通指针和智能指针
+    std::shared_ptr<int> pointer(new int(10));
+    Process(pointer);
+    if (pointer.unique()) { // 当前引用值为1返回true，一般在写入之前进行判断
+        std::cout << "yes" << std::endl;
+    }
+    std::cout << pointer.use_count() << std::endl;
+    int n = *pointer;
+    std::cout << n << std::endl;
+    pointer.reset(); // 切断智能指针和对象地址的联系，当use_count为0，对象地址自动回收
+    if (pointer.unique()) {
+        std::cout << "no" << std::endl;
+    }
+    std::cout << pointer.use_count() << std::endl;
+    pointer = ReturnIntP(5);
+    std::cout << *pointer << std::endl;
+
+    // 如果直接使用普通指针
+    int* p(new int(12));
+    Process(std::shared_ptr<int>(p)); // 传入符合函数类型的参数
+    // 上面创建的智能指针在为形参赋值完成就销毁了，智能指针只有一个
+    // 因此Process函数运行完成后,智能指针自动释放p所指的内存
+    // 此时的实参p就是空悬指针
+    int m = *p;
+    std::cout << m << std::endl;
+}
+
+void TestGet() {
+    auto sp = std::make_shared<int>();
+    auto p = sp.get(); // get会返回一个普通指针，非必须，不要用
+    std::cout << *sp << std::endl;
+    delete p;
+    std::cout << *sp << std::endl;
 }
 
 int main() {
     // TestSharedPtr();
-    // TestBlob();
+    TestBlob();
     // TestMemory();
-    TestProblem();
+    // TestProblem();
+    // TestMixed();
+    // TestGet();
+
     return 0;
 }

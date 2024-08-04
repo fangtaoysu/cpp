@@ -4,11 +4,20 @@
 #include <string>
 #include <memory>
 #include <initializer_list>
+#include "./str_blob_ptr.h"
 
-
+class StrBlobPtr; // 友元函数的前置声明
 class StrBlob {
 public:
+    friend class StrBlobPtr;
     typedef std::vector<std::string>::size_type size_type;
+    StrBlobPtr begin() {
+        return StrBlobPtr(*this);
+    }
+    StrBlobPtr end() {
+        auto ret = StrBlobPtr(*this, data_->size());
+        return ret;
+    }
     StrBlob();
     StrBlob(std::initializer_list<std::string> il);
     size_type Size() const {
