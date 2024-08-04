@@ -2,7 +2,7 @@
 #include <string>
 #include <sstrean>
 
-const char* IteratorOverflow::waht() const {
+const char* IteratorOverflow::what() const {
     // 用于将不同格式转为字符串
     std::ostringstream ex_msg;
     static std::string msg;
