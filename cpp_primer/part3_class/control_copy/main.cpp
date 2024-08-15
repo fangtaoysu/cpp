@@ -36,6 +36,7 @@ void TestLikePtr() {
     p = q;
     std::cout << p.GetPs() << "\t"
               << q.GetPs() << std::endl;
+    q = std::move(p);
 }
 
 struct NoCopy {
@@ -94,8 +95,9 @@ void TestMsg() {
 
 void TestStrVec() {
     StrVec vec1;
-    vec1.push_back("hi");
-    vec1.push_back("look");
+    vec1.push_back("hi"); // 调用push_back(std::string&&)
+    std::string s("look");
+    vec1.push_back(s); // 调用push_back(const std::string&)
     StrVec vec2(vec1);
     vec2.push_back("abc");
     std::cout << vec1.size() << std::endl;
@@ -114,6 +116,23 @@ void TestStrVec() {
     for (auto b = vec3.begin(); b!= vec3.end(); ++b) {
         std::cout << *b << "_";
     }
+    vec1 = std::move(vec2);
+    for (auto b = vec1.begin(); b!= vec1.end(); ++b) {
+        std::cout << *b << "_";
+    }
+    std::string s1("a"), s2("b");
+    s1 + s2 = "abc";
+} 
+
+void TestRef() {
+    // && 右值引用绑定右值
+    // & 左值引用绑定左值
+    int &&ref1 = 4;
+    int val = 1;
+    // 使用move将val视为右值
+    int &&ref2 = std::move(val);
+    std::cout << ref1 << std::endl;
+    std::cout << ref2 << std::endl;
 }
 
 int main() {
@@ -121,5 +140,6 @@ int main() {
     // TestLikePtr();
     // TestMsg();
     TestStrVec();
+    // TestRef();
     return 0;
 }  

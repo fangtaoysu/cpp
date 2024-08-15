@@ -56,3 +56,26 @@ void swap(Message& lhs, Message& rhs) {
         f->AddMsg(&rhs);
     }
 }
+
+
+void Message::MoveFolders(Message* m) {
+    folders_ = std::move(m->folders_);
+    for (auto f : folders_) {
+        f->RemoveMsg(m); // 移除参数中的msg
+        f->AddMsg(this); // 将当前对象添加到参数对象的folder中
+    }
+    m->folders_.clear();
+}
+
+Message::Message(Message &&m) : contents_(std::move(m.contents_)) {
+    MoveFolders(&m);
+}
+
+Message& Message::operator=(Message &&rhs) {
+    if (this != &rhs) {
+        RemoveFromFolders(); // 释放当前对象指针所指地址
+        contents_ = std::move(rhs.contents_);
+        MoveFolders(&rhs); // 给当前对象指针赋值新地址
+    }
+    return *this;
+}

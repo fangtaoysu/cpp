@@ -14,10 +14,13 @@ private:
     std::set<Folder*> folders_;
     void AddToFolders(const Message&);
     void RemoveFromFolders();
+    void MoveFolders(Message* m);
 public:
     explicit Message(const std::string &str = "") : contents_(str) {}
     Message(const Message&);
+    Message(Message &&); // 移动构造函数
     Message& operator=(const Message&);
+    Message& operator=(Message&&);
     void Save(Folder&);
     void remove(Folder&);
     ~Message();

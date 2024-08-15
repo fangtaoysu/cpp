@@ -9,11 +9,19 @@ public:
     StrVec(/* args */)
         : elements_(nullptr), first_free_(nullptr), cap_(nullptr) {
     }
+    // 拷贝构造函数
     StrVec(const StrVec&);
+    // 移动构造函数
+    StrVec(StrVec &&s) noexcept;
+    // 拷贝赋值运算符 
+    // noexcept关键字 - 不抛出异常
+    // 移动赋值运算符
     StrVec& operator=(const StrVec&);
+    StrVec operator=(StrVec&&) noexcept;
     ~StrVec();
 
     void push_back(const std::string&);
+    void push_back(std::string&&);
     size_t size() const {
         return first_free_ - elements_;
     }
@@ -41,8 +49,6 @@ private:
     // 指向数组尾后位置的指针
     std::string* cap_;
 };
-
-
 
 
 #endif

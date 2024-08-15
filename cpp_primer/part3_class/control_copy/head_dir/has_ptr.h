@@ -13,8 +13,12 @@ public:
         : ps_(p.ps_), i_(p.i_), count_(p.count_) {
         ++(*count_);
     }
+    // 当添加了移动构造函数后，拷贝赋值运算符同时充当移动赋值运算符
     HasPtr& operator=(HasPtr);
     // HasPtr& operator=(const HasPtr&);
+    HasPtr(HasPtr &&p) noexcept : ps_(p.ps_), i_(p.i_) {
+        p.ps_ = 0;
+    }
     std::string& GetPs() {
         return *ps_;
     }
