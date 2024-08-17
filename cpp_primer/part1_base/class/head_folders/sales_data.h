@@ -13,6 +13,11 @@ class SalesData {
 friend istream &Read(istream &is, SalesData &item);
 friend ostream &Print(ostream &os, const SalesData &item);
 friend SalesData Add(const SalesData &lhs, const SalesData &rhs);
+friend std::ostream& operator<<(std::ostream& os, const SalesData& item);
+friend std::istream& operator>>(std::istream& is, SalesData& item);
+friend SalesData operator+(const SalesData& lhs, const SalesData& rhs);
+friend bool operator==(const SalesData& lhs, const SalesData& rhs);
+friend bool operator!=(const SalesData& lhs, const SalesData& rhs);
 
 private:
     double revenue_ = 0.0; // 总收入
@@ -33,6 +38,7 @@ public:
     SalesData(istream &is) : SalesData() {
         Read(is, *this);
     }
+    SalesData& operator+=(const SalesData& rhs);
 
     string Isbn() const {
         return book_no_;
@@ -44,6 +50,11 @@ public:
 istream &Read(istream &is, SalesData &item);
 ostream &Print(ostream &os, const SalesData &item);
 SalesData Add(const SalesData &lhs, const SalesData &rhs);
-
-
+// os在每次输出都会变化，因此不能设为const
+// 考虑到调用问题，输入输出重载运算符不能设为类成员
+std::ostream& operator<<(std::ostream& os, const SalesData& item);
+std::istream& operator>>(std::istream& is, SalesData& item);
+SalesData operator+(const SalesData& lhs, const SalesData& rhs);
+bool operator==(const SalesData& lhs, const SalesData& rhs);
+bool operator!=(const SalesData& lhs, const SalesData& rhs);
 #endif

@@ -38,3 +38,45 @@ SalesData Add(const SalesData &lhs, const SalesData &rhs) {
     sum.Combine(rhs);
     return sum;
 }
+
+std::ostream& operator<<(std::ostream& os, const SalesData& item) {
+    os << item.Isbn() << " "
+       << item.units_sold_ << " "
+       << item.revenue_ << " "
+       << item.AvgPrice();
+    return os;
+}
+
+std::istream& operator>>(std::istream& is, SalesData& item) {
+    double price; // 先读入price，再使用
+    is >> item.book_no_ >> item.units_sold_ >> price;
+    if (is) { // 需要考虑可能读取失败
+        item.revenue_ = price * item.units_sold_;
+    } else {
+        SalesData();
+    }
+    return is;
+}
+
+SalesData operator+(const SalesData& lhs, const SalesData& rhs) {
+    SalesData sum = lhs;
+    sum += rhs; // 使用SalesData的+=重载运算符
+    return sum;
+}
+
+SalesData& SalesData::operator+=(const SalesData& rhs) {
+    revenue_ += rhs.revenue_;
+    units_sold_ += rhs.units_sold_;
+    return *this;
+}
+
+bool operator==(const SalesData& lhs, const SalesData& rhs) {
+    return lhs.Isbn() == rhs.Isbn() &&
+           lhs.units_sold_ == rhs.units_sold_ &&
+           lhs.revenue_ == rhs.revenue_;
+}
+
+bool operator!=(const SalesData& lhs, const SalesData& rhs) {
+    return !(lhs == rhs);
+}
+

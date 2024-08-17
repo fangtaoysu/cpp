@@ -20,21 +20,37 @@ using std::cerr;
 
 
 void TestSale() {
+    // SalesData total;
+    // if (Read(cin, total)) {
+    //     SalesData trans;
+    //     while (Read(cin, trans)) {
+    //         if (total.Isbn() == trans.Isbn()) {
+    //             total.Combine(trans);
+    //         } else {
+    //             Print(cout, total) << endl;
+    //             total.Combine(trans);
+    //         }
+    //     }
+    //     Print(cout, total) << endl;
+    // } else {
+    //     cerr << "no data???" << endl;
+    // }
     SalesData total;
-    if (Read(cin, total)) {
+    if (cin >> total) {
         SalesData trans;
-        while (Read(cin, trans)) {
+        while (cin >> total) {
             if (total.Isbn() == trans.Isbn()) {
-                total.Combine(trans);
+                total += trans;
             } else {
-                Print(cout, total) << endl;
-                total.Combine(trans);
+                cout << total << endl;
+                total = total + trans;
             }
         }
-        Print(cout, total) << endl;
+        cout << total << endl;
     } else {
         cerr << "no data???" << endl;
     }
+    
 }
 
 void TestScreen() {
@@ -46,7 +62,7 @@ void TestScreen() {
 }
 
 int main() {
-    // TestSale();
-    TestScreen();
+    TestSale();
+    // TestScreen();
     return 0;
 }
