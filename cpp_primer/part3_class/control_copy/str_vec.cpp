@@ -97,3 +97,12 @@ void StrVec::push_back(std::string&& s) {
     CheckNAlloc();
     alloc_.construct(first_free_++, std::move(s));
 }
+
+StrVec& StrVec::operator=(std::initializer_list<std::string> il) {
+    auto data = AllocNCopy(il.begin(), il.end());
+    free();
+    elements_ = data.first;
+    first_free_ = data.second;
+    cap_ = data.second;
+    return *this;
+}

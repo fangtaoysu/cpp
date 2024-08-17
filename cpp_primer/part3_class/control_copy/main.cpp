@@ -122,6 +122,13 @@ void TestStrVec() {
     }
     std::string s1("a"), s2("b");
     s1 + s2 = "abc";
+
+    std::cout << std::endl;
+    StrVec v5;
+    v5 = {"a", "b", "c", "d"};
+    for (auto b = v5.begin(); b!= v5.end(); ++b) {
+        std::cout << *b << "_";
+    }
 } 
 
 void TestRef() {

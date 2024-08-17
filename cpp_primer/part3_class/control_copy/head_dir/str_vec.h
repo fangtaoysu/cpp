@@ -18,6 +18,8 @@ public:
     // 移动赋值运算符
     StrVec& operator=(const StrVec&);
     StrVec operator=(StrVec&&) noexcept;
+    // 花括号列表赋值
+    StrVec& operator=(std::initializer_list<std::string>);
     ~StrVec();
 
     void push_back(const std::string&);
