@@ -104,8 +104,8 @@ void TestStrVec() {
     std::cout << vec1.capacity() << std::endl;
     std::cout << vec2.size() << std::endl;
     std::cout << vec2.capacity() << std::endl;
-    for (auto b = vec1.begin(); b!= vec1.end(); ++b) {
-        std::cout << *b << "_";
+    for (std::size_t i = 0; i != vec1.size(); ++i) {
+        std::cout << vec1[i] << "_";
     }
     std::cout << std::endl;
     for (auto b = vec2.begin(); b!= vec2.end(); ++b) {

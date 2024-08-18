@@ -20,6 +20,8 @@ public:
     StrVec operator=(StrVec&&) noexcept;
     // 花括号列表赋值
     StrVec& operator=(std::initializer_list<std::string>);
+    std::string& operator[](std::size_t n);
+    const std::string& operator[](std::size_t n) const;
     ~StrVec();
 
     void push_back(const std::string&);

@@ -20,19 +20,19 @@ public:
     }
     StrBlob();
     StrBlob(std::initializer_list<std::string> il);
-    size_type Size() const {
+    size_type size() const {
         return data_->size();
     }
-    bool Empty() const {
+    bool empty() const {
         return data_->empty();
     }
-    void PushBack(const std::string &t) {
+    void push_back(const std::string &t) {
         data_->push_back(t);
     }
     void Print() const;
-    void PopBack();
-    std::string& Front() const;
-    std::string& Back() const;
+    void pop_back();
+    std::string& front() const;
+    std::string& back() const;
 
 private:
     // 相比于static，shared_ptr可以确保 当调用一个销毁对象的data_的函数后，

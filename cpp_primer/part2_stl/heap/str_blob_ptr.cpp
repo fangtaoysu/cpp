@@ -22,9 +22,23 @@ StrBlobPtr& StrBlobPtr::operator++() {
     return *this;
 }
 
+StrBlobPtr& StrBlobPtr::operator--() {
+    --curr_;
+    Check(curr_, "decrement past begin of StrBlobPtr");
+    return *this;
+}
+
 StrBlobPtr StrBlobPtr::operator++(int) {
     auto ret = *this;
     Incr();
+    return ret;
+}
+
+StrBlobPtr StrBlobPtr::operator--(int) {
+    auto ret = *this;
+    // --ret.curr_;
+    // Check(this->curr_, "decrement past begin of StrBlobPtr");
+    --*this; // 调用前置版本
     return ret;
 }
 

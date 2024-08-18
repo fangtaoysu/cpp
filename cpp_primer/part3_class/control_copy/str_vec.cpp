@@ -106,3 +106,11 @@ StrVec& StrVec::operator=(std::initializer_list<std::string> il) {
     cap_ = data.second;
     return *this;
 }
+
+std::string& StrVec::operator[](std::size_t n) {
+    return elements_[n];
+}
+
+const std::string& StrVec::operator[](std::size_t n) const {
+    return elements_[n];
+}

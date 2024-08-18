@@ -17,18 +17,18 @@ void StrBlob::Check(size_type i, const std::string &msg) const {
     }
 }
 
-std::string& StrBlob::Front() const{
+std::string& StrBlob::front() const{
     // 检查vector是否为空
     Check(0, "Front on emptyStrBlob");
     return data_->front();
 }
 
-std::string& StrBlob::Back() const{
+std::string& StrBlob::back() const{
     Check(0, "Back on empty StrBlob");
     return data_->back();
 }
 
-void StrBlob::PopBack() {
+void StrBlob::pop_back() {
     Check(0, "PopBack on empty StrBlob");
     data_->pop_back();
 }

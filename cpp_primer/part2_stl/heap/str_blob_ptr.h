@@ -15,10 +15,15 @@ public:
     StrBlobPtr() : curr_(0) {
     }
     StrBlobPtr(StrBlob &a, std::size_t sz=0);
-    // 运算符
+    // 解引用运算符
     std::string& operator*() const;
+    std::string* operator->() const { // 箭头运算符返回值是指针
+        return & this->operator*(); // 委托给解引用运算符
+    }
     StrBlobPtr& operator++(); // ++i
     StrBlobPtr operator++(int); // i++
+    StrBlobPtr& operator--(); // --i
+    StrBlobPtr operator--(int); // i--
     bool operator!=(const StrBlobPtr& p) const;
 private:
     std::string& DeRef() const;
