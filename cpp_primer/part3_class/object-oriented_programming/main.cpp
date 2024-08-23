@@ -1,7 +1,7 @@
 /*
  * @Author: fangtao
  * @Date: 2024-08-18 23:49:26
- * @LastEditTime: 2024-08-22 15:58:26
+ * @LastEditTime: 2024-08-23 10:42:58
  * @FilePath: /cpp/cpp_primer/part3_class/object-oriented_programming/main.cpp
  * @Description: 面向对象测试程序
  * 
@@ -31,7 +31,7 @@ double PrintTotal(std::ostream &os, const Quote &item, size_t n) {
     return ret;
 }
 
-void Test() {
+void TestDynamicBinding() {
     BulkQuote bulk("abcd", 18.8, 10, 0.8);
     Quote base("abcd", 18.8);
     // 派生类向基类的转化只对指针或引用有效
@@ -56,7 +56,16 @@ void Test() {
     PrintTotal(std::cout, static_cast<Quote>(bulk), 20); // Calls Quote::NetPrice
 }
 
+void TestCopyControl() {
+    Quote* item_ptr = new Quote;
+    delete item_ptr; // 调用Quote的析构函数
+    item_ptr = new BulkQuote;
+    delete item_ptr; // 调用BulkQuote的析构函数
+    item_ptr = nullptr;
+}
+
 int main() {
-    Test();
+    // TestDynamicBinding();
+    TestCopyControl();
     return 0;
 }

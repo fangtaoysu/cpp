@@ -16,3 +16,7 @@ double BulkQuote::NetPrice(std::size_t n) const {
         return this->Quote::NetPrice(n); // 派生类虚函数调用基类版本时，使用作用域运算符回避虚函数机制
     }
 }
+
+BulkQuote::~BulkQuote() {
+    std::cout << "~BulkQuote" << std::endl;
+}

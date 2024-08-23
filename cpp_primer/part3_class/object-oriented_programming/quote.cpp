@@ -18,3 +18,7 @@ std::string Quote::Isbn() const {
 double Quote::NetPrice(std::size_t n) const {
     return n * price_;
 }
+
+Quote::~Quote() {
+    std::cout << "~Quote" << std::endl;
+}

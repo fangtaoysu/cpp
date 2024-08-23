@@ -14,10 +14,13 @@
 class BulkQuote : public DiscQuote { // 继承
 public:
     double NetPrice(std::size_t) const override;
-    BulkQuote(/* args */) = default;
+    BulkQuote(/* args */) {
+        std::cout << "BulkQuote" << std::endl;
+    };
     BulkQuote(const std::string& book, double p, std::size_t count, double disc)
         : DiscQuote(book, p, count, disc) {
     }
+    ~BulkQuote();
 };
 
 
