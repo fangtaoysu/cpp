@@ -1,7 +1,7 @@
 /*
  * @Author: fangtao
  * @Date: 2024-08-18 23:49:26
- * @LastEditTime: 2024-08-23 10:42:58
+ * @LastEditTime: 2024-08-26 22:54:21
  * @FilePath: /cpp/cpp_primer/part3_class/object-oriented_programming/main.cpp
  * @Description: 面向对象测试程序
  * 
@@ -11,9 +11,11 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <memory>
 #include <functional>
 #include "./head_dir/bulk_quote.h"
 #include "./head_dir/quote.h"
+#include "./head_dir/basket.h"
 
 
 /**
@@ -64,8 +66,23 @@ void TestCopyControl() {
     item_ptr = nullptr;
 }
 
+void TestVector() {
+    std::vector<std::shared_ptr<Quote>> basket;
+    basket.push_back(std::make_shared<Quote>("0-83-231412-2", 50));
+    basket.push_back(std::make_shared<BulkQuote>("0-53-243532-3", 50, 10, .75));
+    std::cout << basket.back()->NetPrice(15) << std::endl;
+
+    Basket basket1;
+    Quote quote1("0-83-231412-2", 50);
+    basket1.AddItem(quote1);
+    BulkQuote quote2("0-53-243532-3", 50, 10, .75);
+    basket1.AddItem(quote2);
+    basket1.TotalReceipt(std::cout);
+}
+
 int main() {
     // TestDynamicBinding();
     TestCopyControl();
+    TestVector();
     return 0;
 }

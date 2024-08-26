@@ -1,7 +1,7 @@
 /*
  * @Author: fangtao
  * @Date: 2024-08-21 11:21:59
- * @LastEditTime: 2024-08-22 20:15:45
+ * @LastEditTime: 2024-08-26 22:49:26
  * @FilePath: /cpp/cpp_primer/part3_class/object-oriented_programming/head_dir/bulk_quote.h
  * @Description: BulkQuote类的头文件
  * 
@@ -21,6 +21,13 @@ public:
         : DiscQuote(book, p, count, disc) {
     }
     ~BulkQuote();
+
+    BulkQuote* clone() const & override {
+        return new BulkQuote(*this);
+    }
+    BulkQuote* clone() && override {
+        return new BulkQuote(std::move(*this));
+    }
 };
 
 
