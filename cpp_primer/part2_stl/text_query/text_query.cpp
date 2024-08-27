@@ -1,4 +1,4 @@
-#include "./text_query.h"
+#include "./head_dir/text_query.h"
 #include <sstream>
 
 TextQuery::TextQuery(std::ifstream& ifs) 
