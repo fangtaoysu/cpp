@@ -8,7 +8,6 @@
 #include <initializer_list>
 #include <stdexcept>
 
-
 template <typename> class BlobPtr; // 将BlobPtr声明为模版，用于友元声明
 // template <typename> class Blob; // 将Blob声明为模版，operator 参数声明
 // template <typename T> // 将operator==声明为模版，用于友元声明
