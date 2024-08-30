@@ -166,4 +166,5 @@ int main(int argc, char *argv[]) {
     TestReturn();
     return EXIT_SUCCESS; // cstdlib
     // return EXIT_FAILURE;
+    // 声明函数指针，只需要用将函数名替换成(*ptr_name)即可
 }
