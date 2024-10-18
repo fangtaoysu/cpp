@@ -1,0 +1,37 @@
+BasedOnStyle: LLVM
+
+# 缩进宽度
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# 大括号位置设置：附加在同一行
+BreakBeforeBraces: Attach
+
+# 控制初始化列表的换行
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: false
+  AfterEnum: false
+  AfterFunction: false
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: false
+  BeforeElse: false
+  IndentBraces: false
+
+# 设置每行字符数限制
+ColumnLimit: 80
+
+# 对于初始化列表，允许元素在一行内进行合理排版
+BinPackArguments: true
+BinPackParameters: true
+
+# 初始化列表中的元素尽量放在一行
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+
+# C++11 风格的初始化列表
+Cpp11BracedListStyle: true
+
+# 确保初始化列表中的元素合理换行，但不强制一行一个元素
+AllowAllConstructorInitializersOnNextLine: false
