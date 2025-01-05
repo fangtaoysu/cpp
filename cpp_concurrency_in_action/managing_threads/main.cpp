@@ -37,8 +37,9 @@ void TestlocalDetach() {
     // unsigned some_local_state = 0;
     Func my_func(*some_local_state);
     std::thread my_thread(my_func); // 开始执行线程my_thread
-    my_thread.detach(); // 函数返回，之后继续运行该线程实例
-    // my_thread.join(); // 线程实例my_thread完成后，函数返回
+    // detach 和 join 配置的是新的线程和当前线程的关系
+    my_thread.detach(); // 新线程和当前线程分离
+    // my_thread.join(); // 当前线程（被阻塞）会等待新线程结束
 }
 
 int DoSomethingInCurrentThread() {
@@ -88,6 +89,6 @@ void TestRAII() {
 int main() {
     // TestlocalDetach();
     // TestJoin();
-    TestRAII();
+    // TestRAII();
     return 0;
 }
