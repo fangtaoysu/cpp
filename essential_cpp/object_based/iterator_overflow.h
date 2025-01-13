@@ -18,7 +18,9 @@ public:
     int max() {
         return max_;
     }
-    const char* what() const;
+    const char* what() const noexcept override { // 添加 noexcept 和 override
+        return "IteratorOverflow: index exceeds the maximum bound.";
+    }
     void WhatHappend(std::ostream &os=std::cerr) {
         os << "Internal error: current index is " << index_
            << ", exceeds maximum bound: " << max_;

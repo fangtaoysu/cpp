@@ -1,5 +1,5 @@
 #ifndef TRIANGULAR_H
-#define TRINAGULAR_H
+#define TRIANGULAR_H
 
 // #include <string>
 #include <vector>

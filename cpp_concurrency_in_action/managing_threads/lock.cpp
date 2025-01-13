@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 #include <thread>
 #include <mutex>
 #include <set>
@@ -48,8 +47,8 @@ public:
         // unique_lock 灵活的管理单把锁的生命周期
         // unique_lock 不直接支持管理多把锁，可以使用lock手动锁定多个锁，然后使用unique_lock接管这些锁
         std::lock(*account_a->GetLock(), *account_b->GetLock());
-        std::unique_lock(*account_a->GetLock(), std::adopt_lock);
-        std::unique_lock(*account_b->GetLock(), std::adopt_lock);
+        std::unique_lock<std::mutex> lock_a(*account_a->GetLock(), std::adopt_lock);
+        std::unique_lock<std::mutex> lock_b(*account_b->GetLock(), std::adopt_lock);
         // // 等价写法2：
         // // scoped_lock 多把锁的锁管理器
         // std::scoped_lock(*account_a->GetLock(), *account_b->GetLock());
