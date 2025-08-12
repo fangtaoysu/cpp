@@ -10,7 +10,7 @@
 
 
 void Hello() {
-    std::cout << "hello world from new thread." << std::endl;
+    std::cout << std::this_thread::get_id() << ": hello world from new thread." << std::endl;
 }
 
 void HelloWithParams(std::string str) {
@@ -79,7 +79,7 @@ void ConcurrentTask(int min, int max) {
     std::vector<std::thread> threads;
     min = 0;
     sum = 0;
-    for (int t = 0; t < concurrent_cout; ++t) {
+    for (unsigned t = 0; t < concurrent_cout; ++t) {
         int range = max / concurrent_cout * (t + 1);
         threads.push_back(std::thread(Worker2, min, range));
         min = range + 1;
