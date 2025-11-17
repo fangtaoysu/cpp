@@ -49,11 +49,13 @@ void TestJoin() {
     try {
         DoSomethingInCurrentThread();
     } catch (const std::exception& e) {
-        if (t.joinable()) {
-            std::cout << "join run" << std::endl;
-            t.join();
-        }
         std::cout << "Caught exception: " << e.what() << std::endl;
+        // 如果此处抛出异常，等价于主线程终止，那么在此之前要确保线程t是不可joinable，否则会调用std::terminate终止程序，导致线程资源泄漏
+        // if (t.joinable()) {
+        //     std::cout << "join run" << std::endl;
+        //     t.join();
+        // }
+        // throw;
     }
     if (t.joinable()) {
         t.join();
